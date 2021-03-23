@@ -1,0 +1,36 @@
+.loginButton{
+    -fx-background-color: #b69de6;
+    -fx-border-radius: 24;
+}
+.loginPanel{
+    -fx-background-color: white;
+
+}
+.decorativePanel{
+    -fx-background-image: url('../images/login.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.buttondash
+{
+    -fx-background-color : #b69de6;
+    -fx-text-fill : #e7e5e5;
+}
+.buttondash:hover{
+    -fx-background-color : #9874dc;
+}
+.buttondash:pressed
+{
+    -fx-background-color : #9874dc;
+}
+.buttondash:focused
+{
+    -fx-background-color : #9874dc;
+}
+
+.menupanel{
+    -fx-background-color : #b69de6;
+}
+.imageCircle{
+    -fx-border-radius: 20 20 20 20;
+}

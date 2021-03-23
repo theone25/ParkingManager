@@ -1,0 +1,9 @@
+.loginButton{
+    -fx-background-color: #b69de6;
+}
+.loginPanel{
+    -fx-background-color: white;
+}
+.decorativePanel{
+    -fx-background-image: url("/images/login.jpg");
+}
