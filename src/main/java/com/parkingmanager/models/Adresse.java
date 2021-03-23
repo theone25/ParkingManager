@@ -1,6 +1,8 @@
 package com.parkingmanager.models;
 
-public class Adresse {
+import org.javalite.activejdbc.Model;
+
+public class Adresse extends Model {
     private int id_adresse;
     private String ville;
     private String adresse;
