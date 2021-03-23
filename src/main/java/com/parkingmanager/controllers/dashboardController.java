@@ -3,6 +3,7 @@ package com.parkingmanager.controllers;
 import javafx.scene.control.Button;
 
 public class dashboardController {
+
     public Button button1;
     public Button button2;
     public Button button3;
