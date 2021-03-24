@@ -6,8 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.stage.Stage;
-import jfxtras.styles.jmetro.JMetro;
-import jfxtras.styles.jmetro.Style;
+//import jfxtras.styles.jmetro.JMetro;
+//import jfxtras.styles.jmetro.Style;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        JMetro jMetro = new JMetro(Style.LIGHT);
+        //JMetro jMetro = new JMetro(Style.LIGHT);
         Scene scene = new Scene(loadFXML("loginPage"), 600, 400);
         //jMetro.setScene(scene);
 

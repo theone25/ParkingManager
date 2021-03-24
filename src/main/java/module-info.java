@@ -1,8 +1,9 @@
 module com.parkingmanager {
     requires javafx.controls;
     requires javafx.fxml;
-    requires org.jfxtras.styles.jmetro;
+    //requires org.jfxtras.styles.jmetro;
     requires activejdbc;
+    requires java.sql;
 
     opens com.parkingmanager.controllers to javafx.fxml;
     exports com.parkingmanager.controllers;
