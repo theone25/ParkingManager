@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="535.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parkingmanager.controllers.camerastreamController">
+   <children>
+      <Button layoutX="527.0" layoutY="192.0" mnemonicParsing="false" text="Button" />
+
+   </children>
+</Pane>
