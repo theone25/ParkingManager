@@ -43,7 +43,7 @@ public class loginpageController {
 
     }
 
-    public void connectClick() {
+  public void connectClick() {
         AuthManager auth = AuthManager.getDefaultInstance();
 
         try {
