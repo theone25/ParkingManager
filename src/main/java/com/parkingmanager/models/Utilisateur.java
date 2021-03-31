@@ -79,13 +79,17 @@ public class Utilisateur {
     }
 
     public static Utilisateur getUserByEmail(String email) throws SQLException {
-
         return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur WHERE email=?", Utilisateur.RSH(), email);
     }
 
     public static List<Utilisateur> getAllUsers() throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur", Utilisateur.BLH());
+    }
+
+    public static Utilisateur save(Utilisateur user) throws SQLException {
+        String q= "INSERT INTO Utilisateur(nom,prenom,email,password) values (?,?,?)";
+        return DB.QR().insert(DB.con(), q, Utilisateur.RSH(), user.getNom(),user.getPrenom(),user.getEmail());
     }
 
     @Override

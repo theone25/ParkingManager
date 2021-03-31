@@ -1,5 +1,6 @@
 package com.parkingmanager;
 
+import com.parkingmanager.services.AuthManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,13 +20,16 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //JMetro jMetro = new JMetro(Style.LIGHT);
-        Scene scene = new Scene(loadFXML("loginPage"), 600, 400);
+
+        Scene scene = new Scene(loadFXML("registration"), 600, 400);
         //jMetro.setScene(scene);
 
         stage.setScene(scene);
         stage.setTitle("Parking Manager");
 
         stage.show();
+
+
     }
 
 
