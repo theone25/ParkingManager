@@ -3,8 +3,10 @@ package com.parkingmanager.models;
 import com.parkingmanager.dao.DB;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Utilisateur {
 
@@ -64,12 +66,21 @@ public class Utilisateur {
     }
 
     public static ResultSetHandler<Utilisateur> RSH(){
-        return new BeanHandler<Utilisateur>(Utilisateur.class);
+        return new BeanHandler<>(Utilisateur.class);
+    }
+
+    public static BeanListHandler<Utilisateur> BLH(){
+        return new BeanListHandler<>(Utilisateur.class);
     }
 
     public static Utilisateur getUserByEmail(String email) throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur WHERE email=?", Utilisateur.RSH(), email);
+    }
+
+    public static List<Utilisateur> getAllUsers() throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur", Utilisateur.BLH());
     }
 
     @Override
