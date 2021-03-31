@@ -7,6 +7,9 @@ module com.parkingmanager {
     requires java.sql;
     requires bcrypt;
     requires commons.dbutils;
+    requires webcam.capture;
+    requires org.apache.logging.log4j;
+    requires bridj;
 
     opens com.parkingmanager.controllers to javafx.fxml;
     exports com.parkingmanager.controllers;

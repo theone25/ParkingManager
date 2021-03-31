@@ -9,11 +9,40 @@
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
+    <repositories>
+        <repository>
+            <id>Sonatype OSS Snapshot Repository</id>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
     <dependencies>
+        <!-- camera dependencies -->
         <dependency>
             <groupId>com.github.sarxos</groupId>
             <artifactId>webcam-capture</artifactId>
-            <version>0.3.12</version>
+            <version>0.3.13-SNAPSHOT</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.nativelibs4java/bridj -->
+        <!-- https://mvnrepository.com/artifact/com.nativelibs4java/bridj -->
+        <dependency>
+            <groupId>com.nativelibs4java</groupId>
+            <artifactId>bridj</artifactId>
+            <version>0.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.13.3</version>
         </dependency>
         <dependency>
             <groupId>at.favre.lib</groupId>
@@ -68,12 +97,7 @@
                 <artifactId>activejdbc-instrumentation</artifactId>
                 <version>2.2</version>
                 <executions>
-                    <execution>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>instrument</goal>
-                        </goals>
-                    </execution>
+                   
                 </executions>
             </plugin>
             <plugin>
