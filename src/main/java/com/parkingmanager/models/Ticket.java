@@ -30,4 +30,13 @@ public class Ticket {
     public void setDate_sortie(Date date_sortie) {
         this.date_sortie = date_sortie;
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id_ticket=" + id_ticket +
+                ", date_entree=" + date_entree +
+                ", date_sortie=" + date_sortie +
+                '}';
+    }
 }

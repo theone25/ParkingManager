@@ -37,4 +37,14 @@ public class Parking {
     public void setCapacite(int capacite) {
         this.capacite = capacite;
     }
+
+    @Override
+    public String toString() {
+        return "Parking{" +
+                "id_parking=" + id_parking +
+                ", nom='" + nom + '\'' +
+                ", tarif_horaire=" + tarif_horaire +
+                ", capacite=" + capacite +
+                '}';
+    }
 }

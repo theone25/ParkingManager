@@ -39,4 +39,14 @@ public class Adresse extends Model {
     public void setPays(String pays) {
         this.pays = pays;
     }
+
+    @Override
+    public String toString() {
+        return "Adresse{" +
+                "id_adresse=" + id_adresse +
+                ", ville='" + ville + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", pays='" + pays + '\'' +
+                '}';
+    }
 }

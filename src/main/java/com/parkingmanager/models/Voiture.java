@@ -21,11 +21,20 @@ public class Voiture {
         this.matricule = matricule;
     }
 
-    public boolean isTicket_payed() {
+    public boolean getTicket_payed() {
         return ticket_payed;
     }
 
     public void setTicket_payed(boolean ticket_payed) {
         this.ticket_payed = ticket_payed;
+    }
+
+    @Override
+    public String toString() {
+        return "Voiture{" +
+                "id_voiture=" + id_voiture +
+                ", matricule='" + matricule + '\'' +
+                ", ticket_payed=" + ticket_payed +
+                '}';
     }
 }

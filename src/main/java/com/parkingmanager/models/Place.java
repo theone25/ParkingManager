@@ -19,4 +19,12 @@ public class Place {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+
+    @Override
+    public String toString() {
+        return "Place{" +
+                "id_place=" + id_place +
+                ", numero=" + numero +
+                '}';
+    }
 }
