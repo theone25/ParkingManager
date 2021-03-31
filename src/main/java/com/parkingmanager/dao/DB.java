@@ -23,6 +23,7 @@ public class DB {
     }
 
     public static QueryRunner QR(){
+
         return new QueryRunner();
     }
 }

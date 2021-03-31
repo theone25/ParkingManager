@@ -2,6 +2,7 @@ package com.parkingmanager.dao;
 
 import java.sql.SQLException;
 
+import com.parkingmanager.controllers.UserController;
 import com.parkingmanager.models.Utilisateur;
 import org.apache.commons.dbutils.DbUtils;
 
@@ -13,9 +14,11 @@ import org.apache.commons.dbutils.DbUtils;
 
                 try {
 
-                    Utilisateur user = Utilisateur.getUserByEmail("a");
+                    UserController user = new UserController();
+                    
+                    Utilisateur u = user.getUserByEmail("a");
 
-                    System.out.print(user.toString());
+                    System.out.print(u.toString());
 
                 } finally {
                     DbUtils.close(DB.con());
