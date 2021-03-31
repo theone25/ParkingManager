@@ -1,18 +1,26 @@
 package com.parkingmanager.models;
 
+import com.parkingmanager.dao.DB;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+
+import java.sql.SQLException;
+
 public class Utilisateur {
-    private int id_utilisateur;
+
+    private int id;
     private String nom;
     private String prenom;
     private String email;
     private String password;
+    private String image;
 
-    public int getId_utilisateur() {
-        return id_utilisateur;
+    public int getId() {
+        return id;
     }
 
-    public void setId_utilisateur(int id_utilisateur) {
-        this.id_utilisateur = id_utilisateur;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -45,5 +53,34 @@ public class Utilisateur {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public static ResultSetHandler<Utilisateur> RSH(){
+        return new BeanHandler<Utilisateur>(Utilisateur.class);
+    }
+
+    public static Utilisateur getUserByEmail(String email) throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur WHERE email=?", Utilisateur.RSH(), email);
+    }
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", image='" + image + '\'' +
+                '}';
     }
 }

@@ -3,7 +3,7 @@ package com.parkingmanager.controllers;
 import java.io.IOException;
 
 import com.parkingmanager.App;
-import com.parkingmanager.dao.HelperDB;
+import com.parkingmanager.dao.TestDB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,10 +33,10 @@ public class loginpageController {
             Stage dashboard=new Stage();
             dashboard.setScene(scene);
             dashboard.setTitle("Parking Manager");
-            HelperDB db=new HelperDB();
-            db.open();
-            db.test();
-            db.close();
+            TestDB db=new TestDB();
+//            opendb.open();
+//            db.test();
+//            db.close();
 
 
 
