@@ -57,7 +57,7 @@ public class Adresse extends Model {
 
     public static Adresse getAdresseById(int id) throws SQLException {
 
-        return DB.QR().query(DB.con(), "SELECT * FROM Adresse WHERE id=?", Adresse.RSH(), id);
+        return DB.QR().query(DB.con(), "SELECT * FROM Adresse WHERE id_adresse=?", Adresse.RSH(), id);
     }
 
     @Override

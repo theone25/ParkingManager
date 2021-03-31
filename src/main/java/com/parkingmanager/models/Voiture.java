@@ -47,7 +47,7 @@ public class Voiture {
 
     public static Voiture getVoitureById(int id) throws SQLException {
 
-        return DB.QR().query(DB.con(), "SELECT * FROM Voiture WHERE id=?", Voiture.RSH(), id);
+        return DB.QR().query(DB.con(), "SELECT * FROM Voiture WHERE id_voiture=?", Voiture.RSH(), id);
     }
 
     @Override

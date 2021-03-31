@@ -48,7 +48,7 @@ public class Ticket {
 
     public static Ticket getTicketById(int id) throws SQLException {
 
-        return DB.QR().query(DB.con(), "SELECT * FROM Ticket WHERE id=?", Ticket.RSH(), id);
+        return DB.QR().query(DB.con(), "SELECT * FROM Ticket WHERE id_ticket=?", Ticket.RSH(), id);
     }
 
     @Override

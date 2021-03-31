@@ -56,7 +56,7 @@ public class Parking {
 
     public static Parking getParkingById(int id) throws SQLException {
 
-        return DB.QR().query(DB.con(), "SELECT * FROM Parking WHERE id=?", Parking.RSH(), id);
+        return DB.QR().query(DB.con(), "SELECT * FROM Parking WHERE id_parking=?", Parking.RSH(), id);
     }
 
     @Override

@@ -38,7 +38,7 @@ public class Place {
 
     public static Place getPlaceById(int id) throws SQLException {
 
-        return DB.QR().query(DB.con(), "SELECT * FROM Place WHERE id=?", Place.RSH(), id);
+        return DB.QR().query(DB.con(), "SELECT * FROM Place WHERE id_place=?", Place.RSH(), id);
     }
 
     @Override
