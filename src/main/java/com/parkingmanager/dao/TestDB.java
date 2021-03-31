@@ -28,6 +28,10 @@ import org.apache.commons.dbutils.DbUtils;
                         System.out.println(item);
                     }
 
+                    Utilisateur us = user.getUserById(1);
+
+                    System.out.print(us.toString());
+
                 } finally {
                     DbUtils.close(DB.con());
                 }

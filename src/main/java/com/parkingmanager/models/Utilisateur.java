@@ -73,6 +73,11 @@ public class Utilisateur {
         return new BeanListHandler<>(Utilisateur.class);
     }
 
+    public static Utilisateur getUserById(int id) throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur WHERE id=?", Utilisateur.RSH(), id);
+    }
+
     public static Utilisateur getUserByEmail(String email) throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur WHERE email=?", Utilisateur.RSH(), email);

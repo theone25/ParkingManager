@@ -1,6 +1,14 @@
 package com.parkingmanager.models;
 
+import com.parkingmanager.dao.DB;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import java.sql.SQLException;
+
 public class Voiture {
+
     private int id_voiture;
     private String matricule;
     private boolean ticket_payed;
@@ -27,6 +35,19 @@ public class Voiture {
 
     public void setTicket_payed(boolean ticket_payed) {
         this.ticket_payed = ticket_payed;
+    }
+
+    public static ResultSetHandler<Voiture> RSH(){
+        return new BeanHandler<>(Voiture.class);
+    }
+
+    public static BeanListHandler<Voiture> BLH(){
+        return new BeanListHandler<>(Voiture.class);
+    }
+
+    public static Voiture getVoitureById(int id) throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Voiture WHERE id=?", Voiture.RSH(), id);
     }
 
     @Override

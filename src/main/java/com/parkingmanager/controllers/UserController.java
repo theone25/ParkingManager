@@ -7,6 +7,11 @@ import java.util.List;
 
 public class UserController {
 
+    public Utilisateur getUserById(int id) throws SQLException {
+
+        return Utilisateur.getUserById(id);
+    }
+
     public Utilisateur getUserByEmail(String email) throws SQLException {
 
         return Utilisateur.getUserByEmail(email);

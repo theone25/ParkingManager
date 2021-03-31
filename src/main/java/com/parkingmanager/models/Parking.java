@@ -1,6 +1,14 @@
 package com.parkingmanager.models;
 
+import com.parkingmanager.dao.DB;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import java.sql.SQLException;
+
 public class Parking {
+
     private int id_parking;
     private String nom;
     private float tarif_horaire;
@@ -36,6 +44,19 @@ public class Parking {
 
     public void setCapacite(int capacite) {
         this.capacite = capacite;
+    }
+
+    public static ResultSetHandler<Parking> RSH(){
+        return new BeanHandler<>(Parking.class);
+    }
+
+    public static BeanListHandler<Parking> BLH(){
+        return new BeanListHandler<>(Parking.class);
+    }
+
+    public static Parking getParkingById(int id) throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Parking WHERE id=?", Parking.RSH(), id);
     }
 
     @Override
