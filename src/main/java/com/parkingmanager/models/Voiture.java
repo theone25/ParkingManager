@@ -6,6 +6,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Voiture {
 
@@ -48,6 +49,11 @@ public class Voiture {
     public static Voiture getVoitureById(int id) throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Voiture WHERE id_voiture=?", Voiture.RSH(), id);
+    }
+
+    public static List<Voiture> getAllVoitures() throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Voiture", Voiture.BLH());
     }
 
     @Override

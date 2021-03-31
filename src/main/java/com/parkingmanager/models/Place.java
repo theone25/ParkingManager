@@ -6,6 +6,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Place {
 
@@ -39,6 +40,11 @@ public class Place {
     public static Place getPlaceById(int id) throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Place WHERE id_place=?", Place.RSH(), id);
+    }
+
+    public static List<Place> getAllPlaces() throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Place", Place.BLH());
     }
 
     @Override

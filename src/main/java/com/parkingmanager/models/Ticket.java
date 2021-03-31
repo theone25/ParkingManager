@@ -7,6 +7,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 public class Ticket {
 
@@ -49,6 +50,11 @@ public class Ticket {
     public static Ticket getTicketById(int id) throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Ticket WHERE id_ticket=?", Ticket.RSH(), id);
+    }
+
+    public static List<Ticket> getAllTickets() throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Ticket", Ticket.BLH());
     }
 
     @Override

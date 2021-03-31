@@ -7,6 +7,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.javalite.activejdbc.Model;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Adresse extends Model {
 
@@ -58,6 +59,11 @@ public class Adresse extends Model {
     public static Adresse getAdresseById(int id) throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Adresse WHERE id_adresse=?", Adresse.RSH(), id);
+    }
+
+    public static List<Adresse> getAllAdresses() throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Adresse", Adresse.BLH());
     }
 
     @Override

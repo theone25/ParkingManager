@@ -6,6 +6,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Parking {
 
@@ -57,6 +58,11 @@ public class Parking {
     public static Parking getParkingById(int id) throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Parking WHERE id_parking=?", Parking.RSH(), id);
+    }
+
+    public static List<Parking> getAllParkings() throws SQLException {
+
+        return DB.QR().query(DB.con(), "SELECT * FROM Parking", Parking.BLH());
     }
 
     @Override
