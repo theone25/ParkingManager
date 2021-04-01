@@ -34,3 +34,7 @@
 .imageCircle{
     -fx-border-radius: 20 20 20 20;
 }
+.avatar{
+    -fx-border-color: #9874dc;
+   -fx-border-radius: 10 10 10 10;
+}
