@@ -20,10 +20,8 @@ public class AuthManager {
         return errors;
     }
 
-    synchronized public static AuthManager getDefaultInstance()
-    {
-        if (auth == null)
-        {
+    synchronized public static AuthManager getDefaultInstance() {
+        if (auth == null) {
             // if instance is null, initialize
             auth = new AuthManager();
         }
@@ -31,13 +29,13 @@ public class AuthManager {
     }
 
     public void authenticate(String email, String password) throws SQLException {
+        errors.clear();
+
         // check email and password are empty
-        if (Validator.isEmpty(email, "email", this.errors)) {
-            return;
-        }
-        if (Validator.isEmpty(password, "password", this.errors)) {
-            return;
-        }
+
+        if (Validator.isEmpty(email, "email", this.errors) ||
+                Validator.isEmpty(password, "password", this.errors)
+        ) return;
 
 
         //check if it's not a  valid email
@@ -54,9 +52,6 @@ public class AuthManager {
         }
 
         //compare password with hashed password in db
-
-        //String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
-        // $2a$12$US00g/uMhoSBm.HiuieBjeMtoN69SN.GE25fCpldebzkryUyopws6
         BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), existedUser.getPassword());
         // result.verified == true
         if (!result.verified) {
@@ -64,12 +59,43 @@ public class AuthManager {
             return;
         }
 
-
         //clear errors
         errors.clear();
         // set the user object
         user = existedUser;
 
+    }
+
+    public void register(Utilisateur user) throws SQLException {
+        //validate the user fields if empty
+        if (Validator.isEmpty(user.getEmail(), "email", errors) ||
+                Validator.isEmpty(user.getNom(), "nom", errors) ||
+                Validator.isEmpty(user.getEmail(), "prenom", errors)||
+                Validator.isEmpty(user.getEmail(), "password", errors)
+
+        ) return;
+
+        //validate email
+        if(Validator.isEmail(user.getEmail())){
+            errors.put("email", "This not a valid email");
+            return;
+        }
+
+        //check password length
+        if(user.getPassword().length()<8){
+            errors.put("email", "password should be at least 8 chars!");
+            return;
+        }
+
+        //hash the password
+
+        String passwordHash = BCrypt.withDefaults().hashToString(12, user.getPassword().toCharArray());
+        user.setPassword(passwordHash);
+
+        user=Utilisateur.save(user);
+        System.out.println("registred ");
 
     }
+
+
 }

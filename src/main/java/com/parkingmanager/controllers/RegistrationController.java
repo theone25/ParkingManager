@@ -1,6 +1,8 @@
 package com.parkingmanager.controllers;
 
 import com.parkingmanager.App;
+import com.parkingmanager.models.Utilisateur;
+import com.parkingmanager.services.AuthManager;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,10 +15,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import java.sql.SQLException;
+
 public class RegistrationController extends Application {
 
     @FXML
     private TextField nameField;
+    @FXML
+    private TextField lastNameField;
 
     @FXML
     private TextField emailField;
@@ -28,30 +34,40 @@ public class RegistrationController extends Application {
     private Button submitButton;
 
     @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) {
+    protected void handleSubmitButtonAction(ActionEvent event) throws SQLException {
         Window owner = submitButton.getScene().getWindow();
-        if(nameField.getText().isEmpty()) {
+        if (nameField.getText().isEmpty()) {
             System.out.println(
                     "Please enter your name");
             return;
         }
-        if(emailField.getText().isEmpty()) {
+        if (emailField.getText().isEmpty()) {
             System.out.println(
                     "Please enter your email id");
             return;
         }
-        if(passwordField.getText().isEmpty()) {
+        if (passwordField.getText().isEmpty()) {
             System.out.println(
                     "Please enter a password");
             return;
         }
 
-        System.out.println("Registration Successful!"+
+        System.out.println("Registration Successful!" +
                 "Welcome " + nameField.getText());
+
+        AuthManager auth = AuthManager.getDefaultInstance();
+        Utilisateur user=new Utilisateur();
+        user.setNom(nameField.getText());
+        user.setPrenom(lastNameField.getText());
+        user.setEmail(emailField.getText());
+        user.setPassword(passwordField.getText());
+
+        auth.register(user);
+
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
         Parent root = FXMLLoader.load(App.class.getResource("registration.fxml"));
         primaryStage.setTitle("Formulaire d'inscription");

@@ -1,11 +1,15 @@
 package com.parkingmanager.controllers;
 
 import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamDevice;
+import com.github.sarxos.webcam.WebcamDriver;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
+
+import java.util.List;
 
 public class camerastreamController {
     @FXML
@@ -16,6 +20,7 @@ public class camerastreamController {
 
     @FXML
     private void initialize() {
+
         if (Webcam.getWebcams() != null) {
             for(Webcam cam : Webcam.getWebcams()) {
                 cameraList.getItems().add(cam.getName());

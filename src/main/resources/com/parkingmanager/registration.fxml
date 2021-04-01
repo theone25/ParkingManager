@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.parkingmanager.controllers.RegistrationController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parkingmanager.controllers.RegistrationController">
     <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
     <columnConstraints>
         <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="100.0" prefWidth="100.0">
@@ -30,7 +26,7 @@
                <Font name="Arial" size="24" />
            </font>
            <GridPane.margin>
-               <Insets bottom="20" left="0" right="0" top="20" />
+               <Insets bottom="20"  top="20" />
            </GridPane.margin>
        </Label>
 
@@ -43,19 +39,25 @@
        <TextField fx:id="nameField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
 
-       <!-- Add Email Label -->
+       <!-- Add Last name Label -->
        <Label text="Prénom" GridPane.columnIndex="0" GridPane.rowIndex="2">
     </Label>
-       <!-- Add Email Text Field -->
-       <TextField fx:id="emailField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+       <!-- Add Last name Text Field -->
+       <TextField fx:id="lastNameField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
 
 
-       <!-- Add Password Label -->
+       <!-- Add Email Label -->
        <Label text="Email" GridPane.columnIndex="0" GridPane.rowIndex="3">
     </Label>
+       <!-- Add Email Text Field -->
+       <TextField fx:id="emailField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+       <!-- Add Password Label -->
+       <Label text="Mot de passe" GridPane.rowIndex="4" />
        <!-- Add Password Field -->
-       <PasswordField fx:id="passwordField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+       <PasswordField fx:id="passwordField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
 
        <!-- Add Submit Button -->
@@ -64,8 +66,6 @@
                <Insets bottom="20" left="0" right="0" top="20" />
            </GridPane.margin>
        </Button>
-      <PasswordField fx:id="passwordField1" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Label text="Mot de passe" GridPane.rowIndex="4" />
    </children>
    <rowConstraints>
       <RowConstraints />

@@ -38,14 +38,14 @@ public class loginpageController {
 
     public void addError(String key, HashMap errors) {
         if (errors.containsKey(key)) {
-            errorBox.setText(errorBox.getText() + errors.get(key).toString());
+            errorBox.setText(errorBox.getText() +"\n" + errors.get(key).toString());
         }
 
     }
 
   public void connectClick() {
         AuthManager auth = AuthManager.getDefaultInstance();
-
+        errorBox.setText("");
         try {
             auth.authenticate(email.getText(), password.getText());
             HashMap errors = auth.getErrors();
