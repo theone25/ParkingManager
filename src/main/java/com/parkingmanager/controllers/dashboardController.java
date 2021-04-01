@@ -20,10 +20,32 @@ public class dashboardController {
 
     @FXML Pane mainPane;
 
+    @FXML
+    private void initialize() {
+        try {
+            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
+            mainPane.getChildren().clear();
+            mainPane.getChildren().add(cameraStreamPane);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public void GetCameraStream(){
         try {
             Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/cameraStream.fxml"));
+            mainPane.getChildren().clear();
+            mainPane.getChildren().add(cameraStreamPane);
 
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void GetHomePage(){
+        try {
+            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
+            mainPane.getChildren().clear();
             mainPane.getChildren().add(cameraStreamPane);
 
         } catch (IOException e) {
