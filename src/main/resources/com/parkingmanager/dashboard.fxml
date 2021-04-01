@@ -27,7 +27,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button2" alignment="BASELINE_LEFT" layoutY="159.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Places">
+            <Button fx:id="button2" onAction="#GetPlacesPage" alignment="BASELINE_LEFT" layoutY="159.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Places">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@images/building-line.png" />

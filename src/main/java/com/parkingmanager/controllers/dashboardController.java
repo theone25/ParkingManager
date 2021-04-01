@@ -52,7 +52,16 @@ public class dashboardController {
             System.out.println(e.getMessage());
         }
     }
+    public void GetPlacesPage(){
+        try {
+            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/placesPage.fxml"));
+            mainPane.getChildren().clear();
+            mainPane.getChildren().add(cameraStreamPane);
 
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
 
