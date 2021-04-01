@@ -22,7 +22,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         //JMetro jMetro = new JMetro(Style.LIGHT);
 
-        Scene scene = new Scene(loadFXML("loginPage"), 600, 400);
+        Scene scene = new Scene(loadFXML("dashboard"), 600, 400);
         //jMetro.setScene(scene);
 
         stage.setScene(scene);

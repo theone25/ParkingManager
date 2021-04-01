@@ -1,0 +1,29 @@
+.topStats{
+    -fx-border-color: #000000;
+    -fx-border-width: 1 1 1 1;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent !important;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent !important;
+}
+
+.table-view .column-header-background{
+    -fx-background-color:  #36304a !important;
+    -fx-background-radius: 10 10 0 0 !important;
+    -fx-background-insets: 0 0 0 0 !important;
+    -fx-padding: 0 0 5 0 !important;
+
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
