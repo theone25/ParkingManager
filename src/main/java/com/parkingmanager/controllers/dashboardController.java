@@ -31,13 +31,11 @@ public class dashboardController {
 
     @FXML
     private void initialize() {
-<<<<<<< HEAD
         AuthManager auth=AuthManager.getDefaultInstance();
         Utilisateur user =auth.getAuthenticatedUser();
 
         fullname.setText(user.getNom()+" "+user.getPrenom());
-    }
-=======
+
         try {
             Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
             mainPane.getChildren().clear();
@@ -48,7 +46,6 @@ public class dashboardController {
         }
     }
 
->>>>>>> e11f95935b4b5067d5f290912dc0204cacf9ef12
     public void GetCameraStream(){
         try {
             Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/cameraStream.fxml"));
