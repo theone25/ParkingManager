@@ -64,6 +64,13 @@
             <artifactId>commons-dbutils</artifactId>
             <version>1.7</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>20.1.0</version>
+        </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -121,6 +128,7 @@
             <artifactId>annotations</artifactId>
             <version>20.1.0</version>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -145,6 +153,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
+                    <executable>${env.JAVA_HOME}/bin/java</executable>
                     <mainClass>com.parkingmanager.App</mainClass>
 
                 </configuration>
