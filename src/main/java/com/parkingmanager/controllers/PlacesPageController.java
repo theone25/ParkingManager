@@ -1,6 +1,8 @@
 package com.parkingmanager.controllers;
 
 import com.parkingmanager.App;
+import com.parkingmanager.models.Place;
+import com.parkingmanager.models.Voiture;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -45,10 +47,11 @@ public class PlacesPageController {
                 });
                 place.setOnMouseClicked(e->{
                     Parent root;
+                    Place
                     try {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("views/customViews/showDetails.fxml"));
                         root=(Parent) loader.load();
-                        ShowDetailsController controller = loader.<ShowDetailsController>getController();
+                        ShowDetailsController controller = loader.getController();
                         controller.setDetailslabelText("this is a test");
                         Stage stage = new Stage();
                         stage.setTitle("Details");

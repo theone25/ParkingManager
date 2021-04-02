@@ -18,6 +18,9 @@ public class Place {
     @NotNull
     private int numero;
 
+    @NotNull
+    private int status;
+
     public int getId_place() {
         return id_place;
     }
