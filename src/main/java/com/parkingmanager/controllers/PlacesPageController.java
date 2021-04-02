@@ -3,12 +3,17 @@ package com.parkingmanager.controllers;
 import com.parkingmanager.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.PopupWindow;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
 
 public class PlacesPageController {
     @FXML
@@ -39,7 +44,21 @@ public class PlacesPageController {
                     place.setStyle("-fx-background-color: green");
                 });
                 place.setOnMouseClicked(e->{
-                    
+                    Parent root;
+                    try {
+                        FXMLLoader loader = new FXMLLoader(App.class.getResource("views/customViews/showDetails.fxml"));
+                        root=(Parent) loader.load();
+                        ShowDetailsController controller = loader.<ShowDetailsController>getController();
+                        controller.setDetailslabel(new Label("this is a test"));
+                        Stage stage = new Stage();
+                        stage.setTitle("Details");
+                        stage.setScene(new Scene(root, 450, 450));
+                        stage.show();
+
+                    }
+                    catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
 
                 });
                 Label lb= (Label) place.getChildren().get(0);
