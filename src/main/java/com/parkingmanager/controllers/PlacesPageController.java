@@ -49,7 +49,7 @@ public class PlacesPageController {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("views/customViews/showDetails.fxml"));
                         root=(Parent) loader.load();
                         ShowDetailsController controller = loader.<ShowDetailsController>getController();
-                        controller.setDetailslabel(new Label("this is a test"));
+                        controller.setDetailslabelText("this is a test");
                         Stage stage = new Stage();
                         stage.setTitle("Details");
                         stage.setScene(new Scene(root, 450, 450));

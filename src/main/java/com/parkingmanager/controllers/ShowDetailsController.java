@@ -8,11 +8,11 @@ public class ShowDetailsController {
     private Label detailslabel;
 
 
-    public Label getDetailslabel() {
-        return detailslabel;
+    public String getDetailslabelText() {
+        return detailslabel.getText();
     }
 
-    public void setDetailslabel(Label detailslabel) {
-        this.detailslabel = detailslabel;
+    public void setDetailslabelText(String detailslabel) {
+        this.detailslabel.setText( detailslabel);
     }
 }
