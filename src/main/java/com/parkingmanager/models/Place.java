@@ -5,12 +5,17 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 import java.util.List;
 
+@Entity
 public class Place {
-
+    @Id
     private int id_place;
+    @NotNull
     private int numero;
 
     public int getId_place() {

@@ -5,14 +5,21 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 import java.util.List;
 
+@Entity
 public class Adresse  {
-
+    @Id
     private int id_adresse;
+    @NotNull
     private String ville;
+    @NotNull
     private String adresse;
+    @NotNull
     private String pays;
 
     public int getId_adresse() {

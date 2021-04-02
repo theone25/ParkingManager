@@ -5,13 +5,19 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 import java.util.List;
 
+@Entity
 public class Voiture {
-
+    @Id
     private int id_voiture;
+    @NotNull
     private String matricule;
+    @NotNull
     private boolean ticket_payed;
 
     public int getId_voiture() {

@@ -5,14 +5,20 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 public class Ticket {
-
+    @Id
     private int id_ticket;
+    @NotNull
     private Date date_entree;
+    @NotNull
     private Date date_sortie;
 
     public int getId_ticket() {

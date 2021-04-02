@@ -5,14 +5,21 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 import java.util.List;
 
+@Entity
 public class Parking {
-
+    @Id
     private int id_parking;
+    @NotNull
     private String nom;
+    @NotNull
     private float tarif_horaire;
+    @NotNull
     private int capacite;
 
     public int getId_parking() {

@@ -1,18 +1,16 @@
 package com.parkingmanager;
 
-//import com.parkingmanager.services.AuthManager;
-
+import com.parkingmanager.models.Utilisateur;
+import com.parkingmanager.models.query.QUtilisateur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Background;
 import javafx.stage.Stage;
-//import jfxtras.styles.jmetro.JMetro;
-//import jfxtras.styles.jmetro.Style;
 import io.ebean.DB;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * JavaFX App
