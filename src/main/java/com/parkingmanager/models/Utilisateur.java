@@ -1,6 +1,7 @@
 package com.parkingmanager.models;
 
 import com.parkingmanager.dao.DB;
+import com.parkingmanager.models.query.QUtilisateur;
 import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -74,21 +75,24 @@ public class Utilisateur extends Model {
         this.image = image;
     }
 
-    public static ResultSetHandler<Utilisateur> RSH(){
+    public static ResultSetHandler<Utilisateur> RSH() {
         return new BeanHandler<>(Utilisateur.class);
     }
 
-    public static BeanListHandler<Utilisateur> BLH(){
+    public static BeanListHandler<Utilisateur> BLH() {
         return new BeanListHandler<>(Utilisateur.class);
     }
 
     public static Utilisateur getUserById(int id) throws SQLException {
-
-        return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur WHERE id=?", Utilisateur.RSH(), id);
+        return new QUtilisateur().id.eq(id).findOne();
+        // return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur WHERE id=?", Utilisateur.RSH(), id);
     }
 
-    public static Utilisateur getUserByEmail(String email) throws SQLException {
-        return DB.QR().query(DB.con(), "SELECT * FROM utilisateur WHERE email=?", Utilisateur.RSH(), email);
+    public static Utilisateur getUserByEmail(String email) {
+        return new QUtilisateur()
+                .email.equalTo(email)
+                .findOne();
+        // return DB.QR().query(DB.con(), "SELECT * FROM utilisateur WHERE email=?", Utilisateur.RSH(), email);
     }
 
     public static List<Utilisateur> getAllUsers() throws SQLException {
@@ -97,8 +101,10 @@ public class Utilisateur extends Model {
     }
 
     public static Utilisateur save(Utilisateur user) throws SQLException {
-        String q= "INSERT INTO utilisateur(nom,prenom,email,password) values (?,?,?,?)";
-        return DB.QR().insert(DB.con(), q, Utilisateur.RSH(), user.getNom(),user.getPrenom(),user.getEmail(),user.getPassword());
+        user.save();
+        return user;
+        //String q = "INSERT INTO utilisateur(nom,prenom,email,password) values (?,?,?,?)";
+       // return DB.QR().insert(DB.con(), q, Utilisateur.RSH(), user.getNom(), user.getPrenom(), user.getEmail(), user.getPassword());
     }
 
     @Override
