@@ -21,7 +21,7 @@ public class camerastreamController {
     @FXML
     private void initialize() {
 
-       /* if (Webcam.getWebcams() != null) {
+       /*if (Webcam.getWebcams() != null) {
             for(Webcam cam : Webcam.getWebcams()) {
                 cameraList.getItems().add(cam.getName());
             }
@@ -36,7 +36,6 @@ public class camerastreamController {
                 camera = Webcam.getWebcamByName(cameraList.getValue());
             }
         };
-        cameraList.setOnAction(event);
-*/
+        cameraList.setOnAction(event);*/
     }
 }

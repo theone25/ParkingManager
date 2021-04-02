@@ -20,7 +20,7 @@
                <children>
 
                   <ImageView  fx:id="avatar" styleClass="avatar" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" HBox.hgrow="NEVER">
-                        <Image   url="@images/login.jpg" />
+                     <Image   url="@images/login.jpg" />
 
                   </ImageView>
                   <Label fx:id="fullname" HBox.hgrow="ALWAYS">

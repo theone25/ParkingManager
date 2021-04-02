@@ -37,9 +37,9 @@ public class dashboardController {
         fullname.setText(user.getNom()+" "+user.getPrenom());
 
         try {
-            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
             mainPane.getChildren().clear();
-            mainPane.getChildren().add(cameraStreamPane);
+            mainPane.getChildren().add(pane);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -48,9 +48,9 @@ public class dashboardController {
 
     public void GetCameraStream(){
         try {
-            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/cameraStream.fxml"));
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/cameraStream.fxml"));
             mainPane.getChildren().clear();
-            mainPane.getChildren().add(cameraStreamPane);
+            mainPane.getChildren().add(pane);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -58,9 +58,9 @@ public class dashboardController {
     }
     public void GetHomePage(){
         try {
-            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
             mainPane.getChildren().clear();
-            mainPane.getChildren().add(cameraStreamPane);
+            mainPane.getChildren().add(pane);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -68,9 +68,9 @@ public class dashboardController {
     }
     public void GetPlacesPage(){
         try {
-            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/placesPage.fxml"));
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/placesPage.fxml"));
             mainPane.getChildren().clear();
-            mainPane.getChildren().add(cameraStreamPane);
+            mainPane.getChildren().add(pane);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -78,9 +78,9 @@ public class dashboardController {
     }
     public void GetVehiculesPage(){
         try {
-            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/vehiculesPage.fxml"));
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/vehiculesPage.fxml"));
             mainPane.getChildren().clear();
-            mainPane.getChildren().add(cameraStreamPane);
+            mainPane.getChildren().add(pane);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
