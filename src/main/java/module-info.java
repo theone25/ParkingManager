@@ -13,6 +13,8 @@ module com.parkingmanager {
     requires io.ebean.datasource;
     requires io.ebean.datasource.api;
     requires org.slf4j;
+    requires persistence.api;
+    requires java.validation;
 
     opens com.parkingmanager.controllers to javafx.fxml;
     exports com.parkingmanager.controllers;

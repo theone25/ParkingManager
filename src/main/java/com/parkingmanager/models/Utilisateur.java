@@ -1,19 +1,28 @@
 package com.parkingmanager.models;
 
 import com.parkingmanager.dao.DB;
+import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
 import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
-public class Utilisateur {
+@Entity
+public class Utilisateur extends Model {
 
+    @Id
     private int id;
+    @NotNull
     private String nom;
+    @NotNull
     private String prenom;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
     private String image;
 
