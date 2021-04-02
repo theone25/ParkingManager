@@ -4,12 +4,11 @@ import com.parkingmanager.dao.DB;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.javalite.activejdbc.Model;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class Adresse extends Model {
+public class Adresse  {
 
     private int id_adresse;
     private String ville;

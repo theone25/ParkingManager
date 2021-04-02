@@ -10,6 +10,7 @@ import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 //import jfxtras.styles.jmetro.JMetro;
 //import jfxtras.styles.jmetro.Style;
+import io.ebean.DB;
 
 import java.io.IOException;
 
@@ -56,6 +57,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        DB.getDefault();
         launch();
     }
 

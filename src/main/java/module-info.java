@@ -3,13 +3,16 @@ module com.parkingmanager {
     requires javafx.controls;
     requires javafx.fxml;
     //requires org.jfxtras.styles.jmetro;
-    requires activejdbc;
     requires java.sql;
     requires bcrypt;
     requires commons.dbutils;
     requires webcam.capture;
     requires org.apache.logging.log4j;
     requires bridj;
+    requires io.ebean.api;
+    requires io.ebean.datasource;
+    requires io.ebean.datasource.api;
+    requires org.slf4j;
 
     opens com.parkingmanager.controllers to javafx.fxml;
     exports com.parkingmanager.controllers;
