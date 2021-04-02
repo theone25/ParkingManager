@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parkingmanager.controllers.dashboardController">
    <children>
-      <Pane layoutX="170.0" prefHeight="75.0" prefWidth="750.0" AnchorPane.bottomAnchor="525.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="170.0" prefHeight="75.0" styleClass="top__panel" prefWidth="750.0" AnchorPane.bottomAnchor="525.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER_LEFT" layoutX="495.0" layoutY="7.0" prefHeight="61.0" prefWidth="200.0">
                <children>

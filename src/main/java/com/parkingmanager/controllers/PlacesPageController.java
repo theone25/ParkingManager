@@ -38,6 +38,10 @@ public class PlacesPageController {
                 place.setOnMouseExited(event -> {
                     place.setStyle("-fx-background-color: green");
                 });
+                place.setOnMouseClicked(e->{
+                    
+
+                });
                 Label lb= (Label) place.getChildren().get(0);
                 Tooltip.install(place,makeBubble(new Tooltip(String.valueOf("ggggggggggggggggggggggggggggggggggggggggggggg"))));
                 lb.setText(String.valueOf(i));
