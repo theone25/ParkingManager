@@ -6,11 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.PopupWindow;
 import javafx.util.Duration;
-import org.w3c.dom.events.MouseEvent;
 
 public class PlacesPageController {
     @FXML
