@@ -76,6 +76,16 @@ public class dashboardController {
             System.out.println(e.getMessage());
         }
     }
+    public void GetVehiculesPage(){
+        try {
+            Pane cameraStreamPane =  FXMLLoader.load(App.class.getResource("views/vehiculesPage.fxml"));
+            mainPane.getChildren().clear();
+            mainPane.getChildren().add(cameraStreamPane);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
 

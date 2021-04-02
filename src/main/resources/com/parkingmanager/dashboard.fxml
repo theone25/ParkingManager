@@ -59,7 +59,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button3" alignment="BASELINE_LEFT" layoutY="204.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Vehicules">
+            <Button fx:id="button3" onAction="#GetVehiculesPage" alignment="BASELINE_LEFT" layoutY="204.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Vehicules">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@images/file-line.png" />
