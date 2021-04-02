@@ -46,8 +46,7 @@ public class PlacesPageController {
                     place.setStyle("-fx-background-color: green");
                 });
                 place.setOnMouseClicked(e->{
-                    Parent root;
-                    Place
+                   
                     try {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("views/customViews/showDetails.fxml"));
                         root=(Parent) loader.load();
