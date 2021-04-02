@@ -1,8 +1,6 @@
 package com.parkingmanager.controllers;
 
 import com.parkingmanager.App;
-import com.parkingmanager.models.Place;
-import com.parkingmanager.models.Voiture;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -46,7 +44,8 @@ public class PlacesPageController {
                     place.setStyle("-fx-background-color: green");
                 });
                 place.setOnMouseClicked(e->{
-                   
+                    Parent root;
+
                     try {
                         FXMLLoader loader = new FXMLLoader(App.class.getResource("views/customViews/showDetails.fxml"));
                         root=(Parent) loader.load();
