@@ -67,6 +67,7 @@ public class AuthManager {
     }
 
     public void register(Utilisateur user) throws SQLException {
+        errors.clear();
         //validate the user fields if empty
         if (Validator.isEmpty(user.getEmail(), "email", errors) ||
                 Validator.isEmpty(user.getNom(), "nom", errors) ||
@@ -76,8 +77,15 @@ public class AuthManager {
         ) return;
 
         //validate email
-        if(Validator.isEmail(user.getEmail())){
+        if(!Validator.isEmail(user.getEmail())){
             errors.put("email", "This not a valid email");
+            return;
+        }
+        //check if the user with this email already exists
+        Utilisateur existedUser = Utilisateur.getUserByEmail(user.getEmail());
+
+        if (existedUser != null) {
+            errors.put("email", "email already exists!");
             return;
         }
 
@@ -92,9 +100,13 @@ public class AuthManager {
         String passwordHash = BCrypt.withDefaults().hashToString(12, user.getPassword().toCharArray());
         user.setPassword(passwordHash);
 
-        user=Utilisateur.save(user);
-        System.out.println("registred ");
+       Utilisateur.save(user);
 
+
+    }
+
+    public Utilisateur getAuthenticatedUser(){
+        return auth.user;
     }
 
 

@@ -12,10 +12,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 public class RegistrationController extends Application {
 
@@ -31,38 +34,53 @@ public class RegistrationController extends Application {
     private PasswordField passwordField;
 
     @FXML
+    private Text errorsBox;
+
+    @FXML
     private Button submitButton;
 
     @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) throws SQLException {
-        Window owner = submitButton.getScene().getWindow();
+    protected void handleSubmitButtonAction(ActionEvent event) throws SQLException, IOException {
+        Stage owner =(Stage) submitButton.getScene().getWindow();
+        errorsBox.setText("");
         if (nameField.getText().isEmpty()) {
-            System.out.println(
-                    "Please enter your name");
+            errorsBox.setText("Please enter your name");
+            return;
+        }
+        if (lastNameField.getText().isEmpty()) {
+            errorsBox.setText(
+                    "Please enter your last name");
             return;
         }
         if (emailField.getText().isEmpty()) {
-            System.out.println(
-                    "Please enter your email id");
+            errorsBox.setText(
+                    "Please enter your email");
             return;
         }
         if (passwordField.getText().isEmpty()) {
-            System.out.println(
+            errorsBox.setText(
                     "Please enter a password");
             return;
+
         }
 
-        System.out.println("Registration Successful!" +
-                "Welcome " + nameField.getText());
-
         AuthManager auth = AuthManager.getDefaultInstance();
-        Utilisateur user=new Utilisateur();
+
+        Utilisateur user = new Utilisateur();
         user.setNom(nameField.getText());
         user.setPrenom(lastNameField.getText());
         user.setEmail(emailField.getText());
         user.setPassword(passwordField.getText());
 
         auth.register(user);
+        HashMap errors = auth.getErrors();
+        if (!errors.isEmpty()) {
+            errors.forEach((k, v) -> errorsBox.setText(errorsBox.getText() + "\n" + errors.get(k).toString()));
+        }else{
+            owner.close();
+            App.loadStage(App.loadScene("loginPage"),"Login").show();
+        }
+
 
     }
 

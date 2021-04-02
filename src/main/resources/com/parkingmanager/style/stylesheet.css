@@ -34,4 +34,11 @@
 .imageCircle{
     -fx-border-radius: 20 20 20 20;
 }
+<<<<<<< HEAD
+.avatar{
+    -fx-border-color: #9874dc;
+   -fx-border-radius: 10 10 10 10;
+}
+=======
 
+>>>>>>> e11f95935b4b5067d5f290912dc0204cacf9ef12
