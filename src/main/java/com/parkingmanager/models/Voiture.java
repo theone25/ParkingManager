@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -18,7 +19,7 @@ public class Voiture {
     @NotNull
     private String matricule;
     @NotNull
-    private boolean ticket_payed;
+    private String date_entree;
 
     public int getId_voiture() {
         return id_voiture;
@@ -36,12 +37,21 @@ public class Voiture {
         this.matricule = matricule;
     }
 
-    public boolean getTicket_payed() {
-        return ticket_payed;
+//    public boolean getTicket_payed() {
+//        return ticket_payed;
+//    }
+
+//    public void setTicket_payed(boolean ticket_payed) {
+//        this.ticket_payed = ticket_payed;
+//    }
+
+
+    public String getDate_entree() {
+        return date_entree;
     }
 
-    public void setTicket_payed(boolean ticket_payed) {
-        this.ticket_payed = ticket_payed;
+    public void setDate_entree(String date_entree) {
+        this.date_entree = date_entree;
     }
 
     public static ResultSetHandler<Voiture> RSH(){
@@ -67,7 +77,7 @@ public class Voiture {
         return "Voiture{" +
                 "id_voiture=" + id_voiture +
                 ", matricule='" + matricule + '\'' +
-                ", ticket_payed=" + ticket_payed +
+                ", Date_entree=" + date_entree +
                 '}';
     }
 }

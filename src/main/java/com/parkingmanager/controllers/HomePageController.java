@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.util.Date;
 import java.util.List;
 
 public class HomePageController {
@@ -22,7 +23,7 @@ public class HomePageController {
     @FXML
     TableColumn colim;
     @FXML
-    TableColumn coltik;
+    TableColumn coldate;
 
 
     @FXML
@@ -40,6 +41,7 @@ public class HomePageController {
         List<Voiture> listVoitures =new QVoiture().findList();
         colid.setCellValueFactory(new PropertyValueFactory<Voiture, Integer>("id_voiture"));
         colim.setCellValueFactory(new PropertyValueFactory<Voiture, String>("matricule"));
+        coldate.setCellValueFactory(new PropertyValueFactory<Voiture, Date>("date_entree"));
         //coltik.setCellFactory(new PropertyValueFactory<Voiture,Boolean>("ticket_payed"));
         ObservableList<Voiture> data=FXCollections.<Voiture>observableArrayList(listVoitures);
 
