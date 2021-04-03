@@ -43,6 +43,10 @@ public class loginpageController {
 
     }
 
+    public void shiftFocus(){
+        password.requestFocus();
+    }
+
   public void connectClick() {
         AuthManager auth = AuthManager.getDefaultInstance();
         errorBox.setText("");
@@ -76,4 +80,6 @@ public class loginpageController {
             System.out.println(e.getMessage());
         }
     }
+
+
 }

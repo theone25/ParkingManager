@@ -57,10 +57,14 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TableView layoutX="14.0" layoutY="32.0" prefHeight="270.0" prefWidth="661.0" styleClass="tableStyle" stylesheets="@../style/HomeStyle.css">
+            <TableView fx:id="tableHome" layoutX="14.0" layoutY="32.0" prefHeight="270.0" prefWidth="661.0" styleClass="tableStyle" stylesheets="@../style/HomeStyle.css">
               <columns>
-                <TableColumn prefWidth="427.0" text="MATRICULES" />
-                <TableColumn minWidth="0.0" prefWidth="233.0" text="OPTIONS" />
+                <!-- <TableColumn prefWidth="427.0" text="MATRICULES" />
+                <TableColumn minWidth="0.0" prefWidth="233.0" text="OPTIONS" /> -->
+                 <TableColumn fx:id="colid" prefWidth="75" text="ID" />
+                 <TableColumn fx:id="colnom" prefWidth="75" text="NOM" />
+                 <TableColumn fx:id="colpre" prefWidth="75" text="PRENOM" />
+                 <TableColumn fx:id="colem" prefWidth="75" text="EMAIL" />
               </columns>
             </TableView>
          </children>
