@@ -63,7 +63,6 @@
                 <TableColumn minWidth="0.0" prefWidth="233.0" text="OPTIONS" /> -->
                  <TableColumn fx:id="colid" prefWidth="150" text="ID Voiture" />
                  <TableColumn fx:id="colim" prefWidth="150" text="IMMATRICULATION" />
-                 <!--<TableColumn fx:id="coltik" prefWidth="150" text="TICKET PAYE" />-->
               </columns>
             </TableView>
          </children>

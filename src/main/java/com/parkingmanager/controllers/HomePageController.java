@@ -38,8 +38,8 @@ public class HomePageController {
         tableHome.getItems().setAll(data);*/
 
         List<Voiture> listVoitures =new QVoiture().findList();
-        colid.setCellFactory(new PropertyValueFactory<Voiture,Integer>("id_voiture"));
-        colim.setCellFactory(new PropertyValueFactory<Voiture,String>("matricule"));
+        colid.setCellValueFactory(new PropertyValueFactory<Voiture, Integer>("id_voiture"));
+        colim.setCellValueFactory(new PropertyValueFactory<Voiture, String>("matricule"));
         //coltik.setCellFactory(new PropertyValueFactory<Voiture,Boolean>("ticket_payed"));
         ObservableList<Voiture> data=FXCollections.<Voiture>observableArrayList(listVoitures);
 
