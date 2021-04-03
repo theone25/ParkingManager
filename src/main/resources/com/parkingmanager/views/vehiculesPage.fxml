@@ -14,12 +14,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="258.0" layoutY="12.0" prefHeight="25.0" prefWidth="264.0" />
+      <TextField fx:id="searchVehicule"  layoutX="258.0" layoutY="12.0" prefHeight="25.0" prefWidth="264.0" />
       <TableView fx:id="vehiculeTable" layoutX="23.0" layoutY="65.0" prefHeight="639.0" prefWidth="688.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="65.0">
         <columns>
-          <TableColumn prefWidth="150.0" text="ID Voiture" />
-          <TableColumn prefWidth="150.0" text="Immatriculation" />
-          <TableColumn prefWidth="150.0" text="Ticket Payé" />
+          <TableColumn fx:id="colid1" prefWidth="150.0" text="ID Voiture" />
+          <TableColumn fx:id="colim1" prefWidth="150.0" text="Immatriculation" />
+          <TableColumn fx:id="coltik1" prefWidth="150.0" text="Ticket Payé" />
         </columns>
       </TableView>
    </children>

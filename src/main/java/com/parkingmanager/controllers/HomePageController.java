@@ -41,7 +41,7 @@ public class HomePageController {
         List<Voiture> listVoitures =new QVoiture().findList();
         colid.setCellValueFactory(new PropertyValueFactory<Voiture, Integer>("id_voiture"));
         colim.setCellValueFactory(new PropertyValueFactory<Voiture, String>("matricule"));
-        coldate.setCellValueFactory(new PropertyValueFactory<Voiture, Date>("date_entree"));
+        //coldate.setCellValueFactory(new PropertyValueFactory<Voiture, String>("date_entree"));
         //coltik.setCellFactory(new PropertyValueFactory<Voiture,Boolean>("ticket_payed"));
         ObservableList<Voiture> data=FXCollections.<Voiture>observableArrayList(listVoitures);
 

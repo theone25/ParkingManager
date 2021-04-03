@@ -7,7 +7,7 @@ import java.util.List;
 
 public class VoitureController {
 
-    public Voiture getVoitureById(int id) throws SQLException {
+   /* public Voiture getVoitureById(int id) throws SQLException {
 
         return Voiture.getVoitureById(id);
     }
@@ -15,5 +15,5 @@ public class VoitureController {
     public List<Voiture> getAllVoitures() throws SQLException {
 
         return Voiture.getAllVoitures();
-    }
+    }*/
 }

@@ -7,8 +7,10 @@ import java.util.HashMap;
 import com.parkingmanager.App;
 import com.parkingmanager.dao.TestDB;
 import com.parkingmanager.services.AuthManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -82,4 +84,20 @@ public class loginpageController {
     }
 
 
+    public void registerClick(ActionEvent actionEvent) {
+        Parent root;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("registration.fxml"));
+            root=(Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("s'inscrire");
+            stage.setScene(new Scene(root, 600, 400));
+            stage.show();
+
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
