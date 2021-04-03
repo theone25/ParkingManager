@@ -61,10 +61,9 @@
               <columns>
                 <!-- <TableColumn prefWidth="427.0" text="MATRICULES" />
                 <TableColumn minWidth="0.0" prefWidth="233.0" text="OPTIONS" /> -->
-                 <TableColumn fx:id="colid" prefWidth="75" text="ID" />
-                 <TableColumn fx:id="colnom" prefWidth="75" text="NOM" />
-                 <TableColumn fx:id="colpre" prefWidth="75" text="PRENOM" />
-                 <TableColumn fx:id="colem" prefWidth="75" text="EMAIL" />
+                 <TableColumn fx:id="colid" prefWidth="150" text="ID Voiture" />
+                 <TableColumn fx:id="colim" prefWidth="150" text="IMMATRICULATION" />
+                 <!--<TableColumn fx:id="coltik" prefWidth="150" text="TICKET PAYE" />-->
               </columns>
             </TableView>
          </children>

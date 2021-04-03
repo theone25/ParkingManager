@@ -1,7 +1,9 @@
 package com.parkingmanager.controllers;
 
 import com.parkingmanager.models.Utilisateur;
+import com.parkingmanager.models.Voiture;
 import com.parkingmanager.models.query.QUtilisateur;
+import com.parkingmanager.models.query.QVoiture;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,21 +20,28 @@ public class HomePageController {
     @FXML
     TableColumn colid;
     @FXML
-    TableColumn colnom;
+    TableColumn colim;
     @FXML
-    TableColumn colpre;
-    @FXML
-    TableColumn colem;
+    TableColumn coltik;
+
 
     @FXML
     private void initialize(){
         data = FXCollections.observableArrayList();
-        List<Utilisateur> listUser= new QUtilisateur().findList();
+        /*List<Utilisateur> listUser= new QUtilisateur().findList();
         colid.setCellValueFactory(new PropertyValueFactory<Utilisateur, Integer>("id"));
         colnom.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("nom"));
         colpre.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("prenom"));
         colem.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("email"));
         ObservableList<Utilisateur> data = FXCollections.<Utilisateur>observableArrayList(listUser);
+
+        tableHome.getItems().setAll(data);*/
+
+        List<Voiture> listVoitures =new QVoiture().findList();
+        colid.setCellFactory(new PropertyValueFactory<Voiture,Integer>("id_voiture"));
+        colim.setCellFactory(new PropertyValueFactory<Voiture,String>("matricule"));
+        //coltik.setCellFactory(new PropertyValueFactory<Voiture,Boolean>("ticket_payed"));
+        ObservableList<Voiture> data=FXCollections.<Voiture>observableArrayList(listVoitures);
 
         tableHome.getItems().setAll(data);
     }
