@@ -7,12 +7,13 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+@Entity @Table(name = "Ticket")
 public class Ticket {
     @Id
     private int id_ticket;

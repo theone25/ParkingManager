@@ -1,7 +1,8 @@
 package com.parkingmanager;
 
-import com.parkingmanager.models.Utilisateur;
-import com.parkingmanager.models.query.QUtilisateur;
+import com.github.sarxos.webcam.Webcam;
+import io.ebean.annotation.Platform;
+import io.ebean.dbmigration.DbMigration;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +11,6 @@ import javafx.stage.Stage;
 import io.ebean.DB;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * JavaFX App
@@ -54,8 +54,13 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         DB.getDefault();
+
+        DbMigration dbMigration = DbMigration.create();
+        dbMigration.setPlatform(Platform.MYSQL);
+        //nu.pattern.OpenCV.loadShared();
+        dbMigration.generateInitMigration();
         launch();
     }
 

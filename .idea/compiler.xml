@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/io/ebean/querybean-generator/12.8.0/querybean-generator-12.8.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/ebean/querybean-generator/12.8.1/querybean-generator-12.8.1.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/avaje/composite/composite-testing/3.1/composite-testing-3.1.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/testng/testng/6.9.10/testng-6.9.10.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/beust/jcommander/1.48/jcommander-1.48.jar" />

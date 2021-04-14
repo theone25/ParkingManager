@@ -20,10 +20,27 @@
         <dependency>
             <groupId>com.github.sarxos</groupId>
             <artifactId>webcam-capture</artifactId>
-            <version>0.3.13-SNAPSHOT</version>
+            <version>0.3.12</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.nativelibs4java/bridj -->
-        <!-- https://mvnrepository.com/artifact/com.nativelibs4java/bridj -->
+
+        <dependency>
+            <groupId>com.github.sarxos</groupId>
+            <artifactId>webcam-capture-driver-openimaj</artifactId>
+            <version>0.3.12</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+
+
+
+
         <dependency>
             <groupId>com.nativelibs4java</groupId>
             <artifactId>bridj</artifactId>
@@ -101,14 +118,21 @@
         <dependency>
             <groupId>io.ebean</groupId>
             <artifactId>ebean</artifactId>
-            <version>12.8.0</version>
+            <version>12.8.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.ebean/ebean-ddl-generator -->
+        <dependency>
+            <groupId>io.ebean</groupId>
+            <artifactId>ebean-ddl-generator</artifactId>
+            <version>12.8.1</version>
+        </dependency>
+
 
         <!-- Test dependencies -->
         <dependency>
             <groupId>io.ebean</groupId>
             <artifactId>ebean-test</artifactId>
-            <version>12.8.0</version>
+            <version>12.8.1</version>
             <scope>test</scope>
         </dependency>
 
@@ -122,12 +146,23 @@
             <version>2.0.1.Final</version>
             <!--<version>1.0.0.GA</version>-->
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
+
         <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>20.1.0</version>
+            <groupId>io.ebean</groupId>
+            <artifactId>ebean-migration</artifactId>
+            <version>12.4.0</version>
+            <scope>compile</scope>
         </dependency>
+
+
+        <!-- opencv dependencie -->
+        <!-- https://mvnrepository.com/artifact/org.openpnp/opencv -->
+        <dependency>
+            <groupId>org.openpnp</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.5.1-2</version>
+        </dependency>
+
 
     </dependencies>
     <build>
@@ -142,7 +177,7 @@
                         <path>
                             <groupId>io.ebean</groupId>
                             <artifactId>querybean-generator</artifactId>
-                            <version>12.8.0</version>
+                            <version>12.8.1</version>
                         </path>
                         <!-- other annotation processors -->
                     </annotationProcessorPaths>
@@ -166,7 +201,7 @@
                 <configuration>
                     <tiles>
                         <!-- other tiles ... -->
-                        <tile>io.ebean.tile:enhancement:12.8.0</tile>
+                        <tile>io.ebean.tile:enhancement:12.8.1</tile>
                     </tiles>
                 </configuration>
             </plugin>

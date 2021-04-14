@@ -1,18 +1,20 @@
 package com.parkingmanager.models;
 
 import com.parkingmanager.dao.DB;
+import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 import java.util.List;
 
-@Entity
-public class Parking {
+@Entity @Table(name = "Parking")
+public class Parking extends Model {
     @Id
     private int id_parking;
     @NotNull

@@ -78,7 +78,7 @@ public class RegistrationController extends Application {
             errors.forEach((k, v) -> errorsBox.setText(errorsBox.getText() + "\n" + errors.get(k).toString()));
         }else{
             owner.close();
-            App.loadStage(App.loadScene("loginPage"),"Login").show();
+            //App.loadStage(App.loadScene("loginPage"),"Login").show();
         }
 
 

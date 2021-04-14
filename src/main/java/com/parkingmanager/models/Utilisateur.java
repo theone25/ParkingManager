@@ -12,11 +12,14 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-@Entity
+@Entity @Table(name = "Utilisateur")
 public class Utilisateur extends Model {
 
     @Id
     private int id;
+    @ManyToOne()
+    @JoinColumn(name = "IdRole")
+    private Role IdRole;
     @NotNull
     private String nom;
     @NotNull
