@@ -1,6 +1,6 @@
 package com.parkingmanager.models;
 
-import com.parkingmanager.dao.DB;
+import com.parkingmanager.dao.*;
 import com.parkingmanager.models.query.QUtilisateur;
 import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;

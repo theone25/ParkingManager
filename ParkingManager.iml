@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_15">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.github.sarxos:webcam-capture:0.3.13-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.nativelibs4java:bridj:0.7.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.android.tools:dx:1.7" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.13.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.13.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.13.3" level="project" />
+    <orderEntry type="library" name="Maven: at.favre.lib:bcrypt:0.9.0" level="project" />
+    <orderEntry type="library" name="Maven: at.favre.lib:bytes:1.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-dbutils:commons-dbutils:1.7" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:20.1.0" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.23" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
+    <orderEntry type="library" name="Maven: org.jfxtras:jmetro:8.6.14" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.controlsfx:controlsfx:8.40.14" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-web:11.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-web:win:11.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:11.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:win:11.0.1" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean:12.8.0" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-datasource:7.0" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-datasource-api:7.0" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-api:12.8.0" level="project" />
+    <orderEntry type="library" name="Maven: io.avaje:avaje-config:1.3" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:persistence-api:2.2.4" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-annotation:6.15" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-types:2.1" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-core:12.8.0" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-ddl-runner:1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.avaje:classpath-scanner:4.2" level="project" />
+    <orderEntry type="library" name="Maven: io.avaje:classpath-scanner-api:4.1" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-migration-auto:1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-core-type:12.8.0" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-externalmapping-api:12.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr4-runtime:4.8-1" level="project" />
+    <orderEntry type="library" name="Maven: io.ebean:ebean-querybean:12.8.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.ebean:ebean-test:12.8.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.ebean:ebean-ddl-generator:12.8.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.ebean:ebean-migration:12.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.ebean:ebean-test-docker:4.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.14.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:2.3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.jaxb:txw2:2.3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.sun.istack:istack-commons-runtime:3.0.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jvnet.staxex:stax-ex:1.8.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.16" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: jakarta.activation:jakarta.activation-api:1.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:1.4.200" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:2.0.1.Final" level="project" />
+  </component>
+</module>

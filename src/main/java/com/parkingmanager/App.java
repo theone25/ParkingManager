@@ -1,6 +1,6 @@
 package com.parkingmanager;
 
-import com.parkingmanager.models.Utilisateur;
+//import com.parkingmanager.models.Utilisateur;
 import com.parkingmanager.models.query.QUtilisateur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

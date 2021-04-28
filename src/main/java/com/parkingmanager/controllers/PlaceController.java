@@ -1,6 +1,6 @@
 package com.parkingmanager.controllers;
 
-import com.parkingmanager.models.Place;
+import com.parkingmanager.models.*;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,6 +1,7 @@
 package com.parkingmanager.models;
 
-import com.parkingmanager.dao.DB;
+import com.parkingmanager.models.query.QUtilisateur;
+import com.parkingmanager.models.query.QVoiture;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -18,7 +19,7 @@ public class Voiture {
     @NotNull
     private String matricule;
     @NotNull
-    private boolean ticket_payed;
+    //private boolean ticket_payed;
 
     public int getId_voiture() {
         return id_voiture;
@@ -36,13 +37,13 @@ public class Voiture {
         this.matricule = matricule;
     }
 
-    public boolean getTicket_payed() {
-        return ticket_payed;
-    }
-
-    public void setTicket_payed(boolean ticket_payed) {
-        this.ticket_payed = ticket_payed;
-    }
+//    public boolean getTicket_payed() {
+//        return ticket_payed;
+//    }
+//
+//    public void setTicket_payed(boolean ticket_payed) {
+//        this.ticket_payed = ticket_payed;
+//    }
 
     public static ResultSetHandler<Voiture> RSH(){
         return new BeanHandler<>(Voiture.class);
@@ -53,13 +54,17 @@ public class Voiture {
     }
 
     public static Voiture getVoitureById(int id) throws SQLException {
-
-        return DB.QR().query(DB.con(), "SELECT * FROM Voiture WHERE id_voiture=?", Voiture.RSH(), id);
+        return new QVoiture().id_voiture.eq(id).findOne();
+        // return DB.QR().query(DB.con(), "SELECT * FROM Utilisateur WHERE id=?", Utilisateur.RSH(), id);
     }
-
+//    public static Voiture getVoitureById(int id) throws SQLException {
+//
+//        return DB.QR().query(DB.con(), "SELECT * FROM Voiture WHERE id_voiture=?", Voiture.RSH(), id);
+//    }
+//
     public static List<Voiture> getAllVoitures() throws SQLException {
 
-        return DB.QR().query(DB.con(), "SELECT * FROM Voiture", Voiture.BLH());
+        return new QVoiture().findList();
     }
 
     @Override
@@ -67,7 +72,7 @@ public class Voiture {
         return "Voiture{" +
                 "id_voiture=" + id_voiture +
                 ", matricule='" + matricule + '\'' +
-                ", ticket_payed=" + ticket_payed +
+
                 '}';
     }
 }

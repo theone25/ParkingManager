@@ -70,7 +70,7 @@ public class loginpageController {
             Stage dashboard = new Stage();
             dashboard.setScene(scene);
             dashboard.setTitle("Parking Manager");
-            TestDB db = new TestDB();
+            //TestDB db = new TestDB();
 //            opendb.open();
 //            db.test();
 //            db.close();
