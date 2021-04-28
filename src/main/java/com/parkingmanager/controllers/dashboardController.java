@@ -125,10 +125,21 @@ public class dashboardController {
 
             ImageView images[] = {iv, iv1, iv2, iv3, iv4, iv5, iv6, iv7 };
 
+            Tooltip tooltip = new Tooltip("salam");
 
+        //Voiture voiture = Voiture.getVoitureById(1);
+
+        List<Voiture> listVoitures = Voiture.getAllVoitures();
+
+        int j=0;
+        while(j < listVoitures.size()) {
+            System.out.println(listVoitures.get(j).toString());
+            j++;
+        }
 
             FlowPane flow = new FlowPane();
 
+            Label lab = new Label();
             //flow.setVgap(8);
             //flow.setHgap(4);
 
@@ -136,10 +147,25 @@ public class dashboardController {
             for (int i = 0; i < images.length; i++) {
                 //flow.getChildren().add(buttons[i]);
 
+                int I = i;
+
+                images[i].setOnMouseEntered(event -> {
+
+                    //tooltip.setText("image num "+ I);
+                    lab.setText("Matricule "+I);
+                    //tooltip.show(primaryStage);
+                });
+
+                images[i].setOnMouseExited(event -> {
+
+                    //tooltip.hide();
+                });
+
                 flow.getChildren().add(images[i]);
 
             }
 
+            flow.getChildren().add(lab);
 
             BorderPane border = new BorderPane();
 
@@ -152,9 +178,12 @@ public class dashboardController {
             border.setTop(iv70);
             border.setCenter(flow);
 
+            lab.setTextFill(Color.YELLOW);
+            lab.setFont(new Font(30));
 
 
 
+            border.setBottom(lab);
             //border.setLeft(new Label("alikom"));
 
             Color color = Color.web("#585858");
@@ -191,6 +220,7 @@ public class dashboardController {
 
 
     }
+
 
 
         public void testfunction(){
