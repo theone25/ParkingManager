@@ -100,27 +100,9 @@ public class dashboardController {
             System.out.println(e.getMessage());
         }
     }
-    public void GetPlacesPage(){
-        try {
-            Pane pane =  FXMLLoader.load(App.class.getResource("views/placesPage.fxml"));
-            mainPane.getChildren().clear();
-            mainPane.getChildren().add(pane);
+    public void GetPlacesPage() throws SQLException {
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    public void GetVehiculesPage(){
-        try {
-            Pane pane =  FXMLLoader.load(App.class.getResource("views/vehiculesPage.fxml"));
-            mainPane.getChildren().clear();
-            mainPane.getChildren().add(pane);
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    public void GetStatistiquesPage() throws SQLException {
 
             //Pane pane =  FXMLLoader.load(App.class.getResource("views/statistiquesPage.fxml"));
             //File file = new File("C:/Users/DELL/OneDrive/Projects/LP/ParkingManager1/ParkingManager/src/main/resources/com/parkingmanager/images/parc/1.jpg");
@@ -149,13 +131,13 @@ public class dashboardController {
 
             Tooltip tooltip = new Tooltip("salam");
 
-        //Voiture voiture = Voiture.getVoitureById(1);
+            //Voiture voiture = Voiture.getVoitureById(1);
 
-        List<Voiture> listVoitures = Voiture.getAllVoitures();
+            List<Voiture> listVoitures = Voiture.getAllVoitures();
 
-        List<Place> place = Place.getPlaces();
+            List<Place> place = Place.getPlaces();
 
-        int j=0;
+            int j=0;
 
 //        while(j < place.size()) {
 //
@@ -191,7 +173,7 @@ public class dashboardController {
             //flow.setVgap(8);
             //flow.setHgap(4);
 
-        int s = 0;
+            int s = 0;
 
             flow.setPrefWrapLength(300);
 
@@ -354,7 +336,35 @@ public class dashboardController {
             mainPane.getChildren().clear();
             mainPane.getChildren().add(border);
             mainPane.getChildren().add(new Label());
+            //*************************
 
+
+
+
+
+
+
+    }
+    public void GetVehiculesPage(){
+        try {
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/vehiculesPage.fxml"));
+            mainPane.getChildren().clear();
+            mainPane.getChildren().add(pane);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void GetStatistiquesPage() throws SQLException {
+
+        try {
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/statistiquesPage.fxml"));
+            mainPane.getChildren().clear();
+            mainPane.getChildren().add(pane);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
