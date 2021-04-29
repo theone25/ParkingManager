@@ -3,6 +3,7 @@ package com.parkingmanager.models;
 import com.parkingmanager.dao.DB;
 import com.parkingmanager.models.query.QPlace;
 import com.parkingmanager.models.query.QUtilisateur;
+import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -14,7 +15,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Entity
-public class Place {
+public class Place extends Model {
+
     @Id
     private int id_place;
     @NotNull
@@ -88,6 +90,12 @@ public class Place {
         return new QPlace()
                 .id_place.equalTo(id)
                 .findOne();
+    }
+
+    public static Place save(Place place) throws SQLException {
+
+        place.save();
+        return place;
     }
 
     @Override

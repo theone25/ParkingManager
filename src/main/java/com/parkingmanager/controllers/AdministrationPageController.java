@@ -67,12 +67,28 @@ public class AdministrationPageController {
             insertVoitureStatus.setTextFill(Color.GREEN);
             insertVoitureStatus.setFont(new Font(23));
 
-            insertVoitureStatus.setText("Success");
+            insertVoitureStatus.setText("Success !");
         }
 
 
     }
 
-    public void submitPlaceInsertAction(ActionEvent actionEvent) {
+    public void submitPlaceInsertAction(ActionEvent actionEvent) throws SQLException {
+
+        Place place = new Place();
+
+        place.setId_place(Integer.parseInt(idplace.getText()));
+
+        place.setId_parking(Integer.parseInt(idParking.getText()));
+
+        place.setNumero(Integer.parseInt(numPlace.getText()));
+
+        Place.save(place);
+
+        insertPlaceStatus.setTextFill(Color.GREEN);
+        insertPlaceStatus.setFont(new Font(23));
+
+        insertPlaceStatus.setText("Success !");
+
     }
 }
