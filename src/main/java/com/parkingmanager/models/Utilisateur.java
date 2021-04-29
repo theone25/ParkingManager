@@ -25,6 +25,7 @@ public class Utilisateur extends Model {
     private String email;
     @NotNull
     private String password;
+    @Null
     private String image;
 
     public int getId() {

@@ -46,13 +46,29 @@ public class dashboardController {
     @FXML
     private void initialize() {
 
-        AuthManager auth=AuthManager.getDefaultInstance();
-        Utilisateur user =auth.getAuthenticatedUser();
+        AuthManager auth = AuthManager.getDefaultInstance();
+        Utilisateur user = auth.getAuthenticatedUser();
 
         fullname.setText(user.getNom()+" "+user.getPrenom());
-        ImageView imageView = new ImageView(new Image(App.class.getResource("images/userImages/"+user.getImage()).toString()));
 
-        avatar.setImage(imageView.getImage());
+        String img = user.getImage();
+
+        System.out.println("img = "+img);
+
+        if(img != null) {
+
+            if ( user.getImage().contains(App.class.getResource("images/userImages/").toString())) {
+                ImageView imageView = new ImageView(new Image(App.class.getResource("images/userImages/" + user.getImage()).toString()));
+
+                avatar.setImage(imageView.getImage());
+            }
+        }
+        else{
+
+            ImageView imageView = new ImageView(new Image(App.class.getResource("images/userImages/noavatar.png").toString()));
+
+            avatar.setImage(imageView.getImage());
+        }
 
         try {
             Pane pane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
