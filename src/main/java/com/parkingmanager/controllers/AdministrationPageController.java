@@ -17,5 +17,49 @@ import java.sql.SQLException;
 
 public class AdministrationPageController {
 
+    public TextField idVoiture;
 
+    public TextField matriculeVoiture;
+
+    public TextField dateVoiture;
+
+    public TextField placeVoiture;
+
+    public Button submitVoitureInsert;
+
+    public Label insertStatus;
+
+    public void submitVoitureInsertAction(ActionEvent actionEvent) throws SQLException {
+
+        Voiture voiture = new Voiture();
+
+        voiture.setId_voiture(Integer.parseInt(idVoiture.getText()));
+
+        voiture.setMatricule(matriculeVoiture.getText());
+
+        voiture.setPlace(Integer.parseInt(placeVoiture.getText()));
+
+        voiture.setDate_entree(dateVoiture.getText());
+
+        Place place = Place.findOnePlace(Integer.parseInt(placeVoiture.getText()));
+
+        if(place != null){
+
+            insertStatus.setTextFill(Color.RED);
+            insertStatus.setFont(new Font(23));
+
+            insertStatus.setText("Place occupée !");
+
+        }else{
+
+            Voiture.save(voiture);
+
+            insertStatus.setTextFill(Color.GREEN);
+            insertStatus.setFont(new Font(23));
+
+            insertStatus.setText("Success");
+        }
+
+
+    }
 }
