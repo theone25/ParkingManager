@@ -20,6 +20,8 @@ public class Voiture {
     private String matricule;
     @NotNull
     //private boolean ticket_payed;
+    @NotNull
+    private int place;
 
     public int getId_voiture() {
         return id_voiture;
@@ -44,6 +46,17 @@ public class Voiture {
 //    public void setTicket_payed(boolean ticket_payed) {
 //        this.ticket_payed = ticket_payed;
 //    }
+
+
+    public int getPlace() {
+
+        return place;
+    }
+
+    public void setPlace(int place) {
+
+        this.place = place;
+    }
 
     public static ResultSetHandler<Voiture> RSH(){
         return new BeanHandler<>(Voiture.class);
@@ -71,7 +84,8 @@ public class Voiture {
     public String toString() {
         return "Voiture{" +
                 "id_voiture=" + id_voiture +
-                ", matricule='" + matricule + '\'' +
+                ", matricule='" + matricule +
+                ", place='" + place + '\'' +
 
                 '}';
     }

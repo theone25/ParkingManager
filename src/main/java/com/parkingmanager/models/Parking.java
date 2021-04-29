@@ -1,6 +1,8 @@
 package com.parkingmanager.models;
 
 import com.parkingmanager.dao.DB;
+import com.parkingmanager.models.query.QParking;
+import com.parkingmanager.models.query.QVoiture;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -70,6 +72,11 @@ public class Parking {
     public static List<Parking> getAllParkings() throws SQLException {
 
         return DB.QR().query(DB.con(), "SELECT * FROM Parking", Parking.BLH());
+    }
+
+    public static List<Parking> getParkings() throws SQLException {
+
+        return new QParking().findList();
     }
 
     @Override

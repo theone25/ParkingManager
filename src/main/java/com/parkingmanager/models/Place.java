@@ -1,6 +1,7 @@
 package com.parkingmanager.models;
 
 import com.parkingmanager.dao.DB;
+import com.parkingmanager.models.query.QPlace;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -19,7 +20,10 @@ public class Place {
     private int numero;
 
     @NotNull
-    private int status;
+    private int id_parking;
+//
+//    @NotNull
+//    private int status;
 
     public int getId_place() {
         return id_place;
@@ -36,6 +40,24 @@ public class Place {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+
+    public int getId_parking() {
+
+        return id_parking;
+    }
+
+    public void setId_parking(int id_parking) {
+
+        this.id_parking = id_parking;
+    }
+
+//    public int getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(int status) {
+//        this.status = status;
+//    }
 
     public static ResultSetHandler<Place> RSH(){
         return new BeanHandler<>(Place.class);
@@ -55,11 +77,17 @@ public class Place {
         return DB.QR().query(DB.con(), "SELECT * FROM Place", Place.BLH());
     }
 
+    public static List<Place> getPlaces() throws SQLException {
+
+        return new QPlace().findList();
+    }
+
     @Override
     public String toString() {
         return "Place{" +
                 "id_place=" + id_place +
                 ", numero=" + numero +
+                ", id_parking=" + id_parking +
                 '}';
     }
 }
