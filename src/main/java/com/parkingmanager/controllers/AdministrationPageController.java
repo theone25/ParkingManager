@@ -27,7 +27,17 @@ public class AdministrationPageController {
 
     public Button submitVoitureInsert;
 
-    public Label insertStatus;
+    public TextField idplace;
+    
+    public TextField idParking;
+    
+    public TextField numPlace;
+    
+    public Button submitPlaceInsert;
+
+    public Label insertPlaceStatus;
+
+    public Label insertVoitureStatus;
 
     public void submitVoitureInsertAction(ActionEvent actionEvent) throws SQLException {
 
@@ -45,21 +55,24 @@ public class AdministrationPageController {
 
         if(place != null){
 
-            insertStatus.setTextFill(Color.RED);
-            insertStatus.setFont(new Font(23));
+            insertVoitureStatus.setTextFill(Color.RED);
+            insertVoitureStatus.setFont(new Font(23));
 
-            insertStatus.setText("Place occupée !");
+            insertVoitureStatus.setText("Place occupée !");
 
         }else{
 
             Voiture.save(voiture);
 
-            insertStatus.setTextFill(Color.GREEN);
-            insertStatus.setFont(new Font(23));
+            insertVoitureStatus.setTextFill(Color.GREEN);
+            insertVoitureStatus.setFont(new Font(23));
 
-            insertStatus.setText("Success");
+            insertVoitureStatus.setText("Success");
         }
 
 
+    }
+
+    public void submitPlaceInsertAction(ActionEvent actionEvent) {
     }
 }
