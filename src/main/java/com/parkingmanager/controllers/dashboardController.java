@@ -50,6 +50,9 @@ public class dashboardController {
         Utilisateur user =auth.getAuthenticatedUser();
 
         fullname.setText(user.getNom()+" "+user.getPrenom());
+        ImageView imageView = new ImageView(new Image(App.class.getResource("images/userImages/"+user.getImage()).toString()));
+
+        avatar.setImage(imageView.getImage());
 
         try {
             Pane pane =  FXMLLoader.load(App.class.getResource("views/homePage.fxml"));
