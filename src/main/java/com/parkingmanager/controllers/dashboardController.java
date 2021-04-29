@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -348,6 +349,17 @@ public class dashboardController {
     public void GetVehiculesPage(){
         try {
             Pane pane =  FXMLLoader.load(App.class.getResource("views/vehiculesPage.fxml"));
+            mainPane.getChildren().clear();
+            mainPane.getChildren().add(pane);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void GetAdministration(){
+        try {
+            TabPane pane =  FXMLLoader.load(App.class.getResource("administrationPage.fxml"));
             mainPane.getChildren().clear();
             mainPane.getChildren().add(pane);
 

@@ -2,6 +2,7 @@ package com.parkingmanager.models;
 
 import com.parkingmanager.dao.DB;
 import com.parkingmanager.models.query.QPlace;
+import com.parkingmanager.models.query.QUtilisateur;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -80,6 +81,13 @@ public class Place {
     public static List<Place> getPlaces() throws SQLException {
 
         return new QPlace().findList();
+    }
+
+    public static Place findOnePlace(int id) throws SQLException {
+
+        return new QPlace()
+                .id_place.equalTo(id)
+                .findOne();
     }
 
     @Override

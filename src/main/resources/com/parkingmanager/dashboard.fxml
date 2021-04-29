@@ -115,7 +115,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button7" alignment="BASELINE_LEFT" layoutY="383.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Parametres">
+            <Button fx:id="button7" alignment="BASELINE_LEFT" layoutY="429.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Parametres">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -126,8 +126,20 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
+            <Button fx:id="button88" alignment="BASELINE_LEFT" layoutY="384.0" mnemonicParsing="false" onAction="#GetAdministration" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Administration">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/database.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             </children>
       </Pane>
-      <Pane fx:id="mainPane" layoutX="170.0" layoutY="75.0" prefHeight="535.0" prefWidth="730.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0" />
+      <Pane fx:id="mainPane" layoutX="170.0" layoutY="75.0" prefHeight="535.0" prefWidth="730.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0" />
    </children>
 </AnchorPane>

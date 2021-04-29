@@ -2,6 +2,7 @@ package com.parkingmanager.models;
 
 import com.parkingmanager.models.query.QUtilisateur;
 import com.parkingmanager.models.query.QVoiture;
+import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Entity
-public class Voiture {
+public class Voiture extends Model {
     @Id
     private int id_voiture;
     @NotNull
@@ -22,6 +23,8 @@ public class Voiture {
     //private boolean ticket_payed;
     @NotNull
     private int place;
+
+    private String Date_entree;
 
     public int getId_voiture() {
         return id_voiture;
@@ -37,6 +40,22 @@ public class Voiture {
 
     public void setMatricule(String matricule) {
         this.matricule = matricule;
+    }
+
+    public String getDate_entree() {
+
+        return Date_entree;
+    }
+
+    public void setDate_entree(String date_entree) {
+
+        Date_entree = date_entree;
+    }
+
+    public static Voiture save(Voiture voiture) throws SQLException {
+
+        voiture.save();
+        return voiture;
     }
 
 //    public boolean getTicket_payed() {
