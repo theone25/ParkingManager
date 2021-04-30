@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -11,30 +13,34 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parkingmanager.controllers.loginpageController">
     <children>
-        <Pane prefHeight="400.0" prefWidth="230.0" styleClass="decorativePanel" stylesheets="@style/stylesheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="370.0" AnchorPane.topAnchor="0.0" />
         <Pane layoutX="230.0" prefHeight="400.0" prefWidth="370.0" styleClass="loginPanel" stylesheets="@style/stylesheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label layoutX="53.0" layoutY="75.0" text="Se Connecter">
+                <Label layoutX="77.0" layoutY="75.0" text="Se Connecter">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField fx:id="email" layoutX="53.0" layoutY="159.0" onAction="#shiftFocus" prefHeight="33.0" prefWidth="259.0" promptText="E-mail" />
+                <TextField fx:id="email" layoutX="77.0" layoutY="157.0" onAction="#shiftFocus" prefHeight="33.0" prefWidth="259.0" promptText="E-mail" />
                 <!--            <Text fx:id="emailErrorBox" layoutX="53.0" layoutY="205.0" fill="red" />-->
-                <PasswordField fx:id="password" layoutX="53.0" layoutY="218.0" onAction="#connectClick" prefHeight="33.0" prefWidth="259.0" promptText="Mot De Passe" />
+                <PasswordField fx:id="password" layoutX="77.0" layoutY="219.0" onAction="#connectClick" prefHeight="33.0" prefWidth="259.0" promptText="Mot De Passe" />
 
                 <Text fx:id="errorBox" fill="red" layoutX="53.0" layoutY="265.0" />
-                <Button fx:id="loginButton" layoutX="206.0" layoutY="288.0" mnemonicParsing="false" onAction="#connectClick" prefHeight="39.0" prefWidth="106.0" styleClass="loginButton" stylesheets="@style/stylesheet.css" text="se connecter" textFill="WHITE">
+                <Button fx:id="loginButton" layoutX="217.0" layoutY="288.0" mnemonicParsing="false" onAction="#connectClick" prefHeight="39.0" prefWidth="106.0" styleClass="loginButton" stylesheets="@style/stylesheet.css" text="se connecter" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-            <Button fx:id="registerButton" layoutX="53.0" layoutY="288.0" mnemonicParsing="false" onAction="#registerClick" prefHeight="39.0" prefWidth="106.0" styleClass="loginButton" stylesheets="@style/stylesheet.css" text="s'inscrire" textFill="WHITE">
+            <Button fx:id="registerButton" layoutX="85.0" layoutY="288.0" mnemonicParsing="false" onAction="#registerClick" prefHeight="39.0" prefWidth="106.0" styleClass="loginButton" stylesheets="@style/stylesheet.css" text="s'inscrire" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
             </children>
         </Pane>
+      <ImageView fitHeight="400.0" fitWidth="294.0">
+         <image>
+            <Image url="@../../../../../../../../Downloads/WhatsApp%20Image%202021-04-30%20at%2022.36.33.jpeg" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
