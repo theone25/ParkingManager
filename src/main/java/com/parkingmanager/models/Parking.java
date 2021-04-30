@@ -1,6 +1,6 @@
 package com.parkingmanager.models;
 
-import com.parkingmanager.dao.DB;
+//import com.parkingmanager.dao.DB;
 import com.parkingmanager.models.query.QParking;
 import com.parkingmanager.models.query.QVoiture;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -9,6 +9,8 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.sql.SQLException;
 import java.util.List;
@@ -64,19 +66,24 @@ public class Parking {
         return new BeanListHandler<>(Parking.class);
     }
 
-    public static Parking getParkingById(int id) throws SQLException {
-
-        return DB.QR().query(DB.con(), "SELECT * FROM Parking WHERE id_parking=?", Parking.RSH(), id);
-    }
-
-    public static List<Parking> getAllParkings() throws SQLException {
-
-        return DB.QR().query(DB.con(), "SELECT * FROM Parking", Parking.BLH());
-    }
+//    public static Parking getParkingById(int id) throws SQLException {
+//
+//        return DB.QR().query(DB.con(), "SELECT * FROM Parking WHERE id_parking=?", Parking.RSH(), id);
+//    }
+//
+//    public static List<Parking> getAllParkings() throws SQLException {
+//
+//        return DB.QR().query(DB.con(), "SELECT * FROM Parking", Parking.BLH());
+//    }
 
     public static List<Parking> getParkings() throws SQLException {
 
         return new QParking().findList();
+    }
+
+    public static Parking getParkingById(int id) throws SQLException {
+
+        return new QParking().id_parking.eq(id).findOne();
     }
 
     @Override

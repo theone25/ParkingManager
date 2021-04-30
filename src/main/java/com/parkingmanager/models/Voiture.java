@@ -2,6 +2,7 @@ package com.parkingmanager.models;
 
 import com.parkingmanager.models.query.QUtilisateur;
 import com.parkingmanager.models.query.QVoiture;
+import io.ebean.DB;
 import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -94,6 +95,15 @@ public class Voiture extends Model {
 //        return DB.QR().query(DB.con(), "SELECT * FROM Voiture WHERE id_voiture=?", Voiture.RSH(), id);
 //    }
 //
+    public static Voiture findPlaceTaken(int i) throws SQLException {
+
+        return DB.find(Voiture.class)
+                .select("*")
+                .where()
+                .eq("place", i)
+                .findOne();
+    }
+
     public static List<Voiture> getAllVoitures() throws SQLException {
 
         return new QVoiture().findList();

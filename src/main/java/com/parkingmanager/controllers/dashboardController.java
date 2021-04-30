@@ -27,6 +27,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 public class dashboardController {
@@ -101,44 +102,25 @@ public class dashboardController {
             System.out.println(e.getMessage());
         }
     }
-    public void GetPlacesPage() throws SQLException {
 
+    public BorderPane showParking(int integer) throws SQLException {
 
+        //Pane pane =  FXMLLoader.load(App.class.getResource("views/statistiquesPage.fxml"));
+        //File file = new File("C:/Users/DELL/OneDrive/Projects/LP/ParkingManager1/ParkingManager/src/main/resources/com/parkingmanager/images/parc/1.jpg");
 
-            //Pane pane =  FXMLLoader.load(App.class.getResource("views/statistiquesPage.fxml"));
-            //File file = new File("C:/Users/DELL/OneDrive/Projects/LP/ParkingManager1/ParkingManager/src/main/resources/com/parkingmanager/images/parc/1.jpg");
-            Image image = new Image(App.class.getResource("images/parc/1.jpg").toString());
-            Image image2 = new Image(App.class.getResource("images/parc/2.jpg").toString());
-            ImageView iv = new ImageView(image);
-            ImageView iv1 = new ImageView(image2);
-            ImageView iv2 = new ImageView(image2);
-            ImageView iv3 = new ImageView(image2);
-            ImageView iv4 = new ImageView(image2);
-            ImageView iv5 = new ImageView(image2);
-            ImageView iv6 = new ImageView(image2);
-            ImageView iv7 = new ImageView(image2);
+        ImageView images[]; //= {iv, iv1, iv2, iv3, iv4, iv5, iv6, iv7 };
 
+        Tooltip tooltip = new Tooltip("salam");
 
-//        Button ivb = new Button();
-//        Button iv1b = new Button();
-//        Button iv2b = new Button();
-//        Button iv3b = new Button();
-//        Button iv4b = new Button();
-//        Button iv5b = new Button();
-//        Button iv6b = new Button();
-//        Button iv7b = new Button();
+        //Voiture voiture = Voiture.getVoitureById(1);
 
-            ImageView images[]; //= {iv, iv1, iv2, iv3, iv4, iv5, iv6, iv7 };
+        List<Voiture> listVoitures = Voiture.getAllVoitures();
 
-            Tooltip tooltip = new Tooltip("salam");
+        List<Place> place = Place.getPlacesParking(integer);
 
-            //Voiture voiture = Voiture.getVoitureById(1);
+        int cap = Parking.getParkingById(1).getCapacite();
 
-            List<Voiture> listVoitures = Voiture.getAllVoitures();
-
-            List<Place> place = Place.getPlaces();
-
-            int j=0;
+        int j=0;
 
 //        while(j < place.size()) {
 //
@@ -146,171 +128,166 @@ public class dashboardController {
 //            j++;
 //        }
 
-            FlowPane flow = new FlowPane();
+        FlowPane flow = new FlowPane();
 
-            Label lab = new Label("Veuillez pointer sur les voitures");
+        Label lab = new Label("Veuillez pointer sur les voitures");
 
-            lab.setFont(new Font(30));
-            lab.setTextFill(Color.YELLOW);
+        lab.setFont(new Font(30));
+        lab.setTextFill(Color.YELLOW);
 
-            Label lab2 = new Label("Cliquez pour plus de détails");
+        Label lab2 = new Label("Cliquez pour plus de détails");
 
-            lab2.setFont(new Font(30));
-            lab2.setTextFill(Color.RED);
+        lab2.setFont(new Font(30));
+        lab2.setTextFill(Color.RED);
 
 
-            ImageView images2 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
-            ImageView images3 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
-            ImageView images4 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
-            ImageView images5 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
-            ImageView images6 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
-            ImageView images7 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
-            ImageView images8 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
-            ImageView images9 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
-            ImageView images10 = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
 
-            ImageView images30[]; //= {images2, images3, images4, images5, images6, images7, images8, images9, images10};
+        ImageView images30[]; //= {images2, images3, images4, images5, images6, images7, images8, images9, images10};
 
-            //flow.setVgap(8);
-            //flow.setHgap(4);
+        //flow.setVgap(8);
+        //flow.setHgap(4);
 
-            int s = 0;
+        int s = 0;
 
-            flow.setPrefWrapLength(300);
+        flow.setPrefWrapLength(300);
 
-            int t = place.size();
-            int d = listVoitures.size();
+        int t = place.size();
+        int d = listVoitures.size();
 
-            images30 = new ImageView[t];
+        images30 = new ImageView[t];
 
-            int i=0;
+        int i=0;
 
-            while(i < t) {
-                //flow.getChildren().add(buttons[i]);
+        while(i < t) {
+            //flow.getChildren().add(buttons[i]);
 
-                int I = i;
+            int I = i;
 
-                images30[s] = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
+            images30[s] = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
 
-                if(i<d) {
+            if(i<d) {
 
-                    images = new ImageView[d];
-                    images[i] = new ImageView(new Image(App.class.getResource("images/parc/1.jpg").toString()));
+                images = new ImageView[d];
+                images[i] = new ImageView(new Image(App.class.getResource("images/parc/1.jpg").toString()));
 
-                    images[i].setOnMouseEntered(event -> {
+                images[i].setOnMouseEntered(event -> {
 
-                        //tooltip.setText("image num "+ I);
-                        lab.setText("Id: "+Integer.toString(listVoitures.get(I).getId_voiture()));
-                        //tooltip.show(primaryStage);
-                    });
+                    //tooltip.setText("image num "+ I);
+                    lab.setText("Id: "+Integer.toString(listVoitures.get(I).getId_voiture()));
+                    //tooltip.show(primaryStage);
+                });
 
-                    images[i].setOnMouseExited(event -> {
+                images[i].setOnMouseExited(event -> {
 
-                        //lab.setVisible(false);
-                    });
+                    //lab.setVisible(false);
+                });
 
-                    images[i].setOnMouseClicked(event -> {
+                images[i].setOnMouseClicked(event -> {
 
-                        lab2.setText("Matricule: "+listVoitures.get(I).getMatricule());
-                        lab2.setFont(new Font(30));
-                        lab2.setTextFill(Color.RED);
+                    lab2.setText("Matricule: "+listVoitures.get(I).getMatricule());
+                    lab2.setFont(new Font(30));
+                    lab2.setTextFill(Color.RED);
 
-                    });
+                });
 
-                    flow.getChildren().add(images[i]);
+                flow.getChildren().add(images[i]);
 
-                }else{
+            }else{
 
-                    images30[s].setOnMouseEntered(event -> {
+                images30[s].setOnMouseEntered(event -> {
 
-                        lab.setVisible(true);
+                    lab.setVisible(true);
 
-                        //tooltip.setText("image num "+ I);
-                        lab.setText("Id: "+Integer.toString(place.get(I).getId_place()));
-                        //tooltip.show(primaryStage);
-                    });
+                    //tooltip.setText("image num "+ I);
+                    //lab.setText("Id: "+Integer.toString(place.get(I).getId_place()));
+                    //tooltip.show(primaryStage);
+                });
 
-                    images30[s].setOnMouseExited(event -> {
+                images30[s].setOnMouseExited(event -> {
 
-                        //lab.setVisible(false);
-                    });
+                    //lab.setVisible(false);
+                });
 
-                    images30[s].setOnMouseClicked(event -> {
+                images30[s].setOnMouseClicked(event -> {
 
-                        lab2.setText("Numéro: "+Integer.toString(place.get(I).getNumero()));
-                        lab2.setFont(new Font(30));
-                        lab2.setTextFill(Color.RED);
+//                    lab2.setText("Numéro: "+Integer.toString(place.get(I).getNumero()));
+//                    lab2.setFont(new Font(30));
+//                    lab2.setTextFill(Color.RED);
 
-                    });
+                });
 
-                    flow.getChildren().add(images30[s]);
-                    s++;
-                }
-                i++;
-
+                flow.getChildren().add(images30[s]);
+                s++;
             }
+            i++;
 
-            flow.getChildren().add(lab);
+        }
 
-            BorderPane border = new BorderPane();
+        flow.getChildren().add(lab);
 
-            Image image3 = new Image(App.class.getResource("images/parc/tri9.jpg").toString());
+        BorderPane border = new BorderPane();
 
-            ImageView iv70 = new ImageView(image3);
+        Image image3 = new Image(App.class.getResource("images/parc/tri9.jpg").toString());
 
-            ImageView iv80 = new ImageView(image3);
+        ImageView iv70 = new ImageView(image3);
 
-            HBox sti = new HBox();
+        ImageView iv80 = new ImageView(image3);
 
-            VBox mehz = new VBox();
+        HBox sti = new HBox();
 
-            mehz.getChildren().add(iv70);
+        VBox mehz = new VBox();
 
-            Label lab3 = new Label("Nb places occupées : "+d);
-            Label lab4 = new Label("Nb places libres : "+(t-d));
+        mehz.getChildren().add(iv70);
 
-            HBox ff = new HBox();
+        Label lab3 = new Label("Nb places occupées : "+d);
+        Label lab4 = new Label("Nb places libres : "+(t-d));
+        //Label lab5 = new Label("Capacité : "+cap);
 
-
-            lab3.setFont(new Font(30));
-            lab4.setFont(new Font(30));
-            lab3.setTextFill(Color.YELLOW);
-            lab4.setTextFill(Color.RED);
-
-            ff.setSpacing(200);
-
-            ff.alignmentProperty().setValue(Pos.CENTER);
-
-            ff.getChildren().add(lab3);
-            ff.getChildren().add(lab4);
-
-            mehz.getChildren().add(ff);
-
-            border.setTop(mehz);
+        HBox ff = new HBox();
 
 
-            border.setCenter(flow);
+        lab3.setFont(new Font(30));
+        lab4.setFont(new Font(30));
+        //lab5.setFont(new Font(30));
 
-            lab.setTextFill(Color.YELLOW);
-            lab.setFont(new Font(30));
-            sti.getChildren().add(lab);
-            sti.getChildren().add(lab2);
-            sti.setSpacing(50);
+        lab3.setTextFill(Color.YELLOW);
+        lab4.setTextFill(Color.RED);
+        //lab5.setTextFill(Color.WHITE);
 
-            HBox hBox = new HBox();
+        ff.setSpacing(200);
 
-            hBox.getChildren().add(sti);
+        ff.alignmentProperty().setValue(Pos.CENTER);
 
-            hBox.alignmentProperty().setValue(Pos.CENTER);
+        ff.getChildren().add(lab3);
+        ff.getChildren().add(lab4);
 
-            border.setBottom(hBox);
-            //border.setLeft(new Label("alikom"));
+        mehz.getChildren().add(ff);
 
-            Color color = Color.web("#585858");
+        border.setTop(mehz);
 
-            BackgroundFill fill = new BackgroundFill(color, new CornerRadii(1), new Insets(0,0,0,0));
 
-            border.setBackground(new Background(fill));
+        border.setCenter(flow);
+
+        lab.setTextFill(Color.YELLOW);
+        lab.setFont(new Font(30));
+        sti.getChildren().add(lab);
+        sti.getChildren().add(lab2);
+        sti.setSpacing(50);
+
+        HBox hBox = new HBox();
+
+        hBox.getChildren().add(sti);
+
+        hBox.alignmentProperty().setValue(Pos.CENTER);
+
+        border.setBottom(hBox);
+        //border.setLeft(new Label("alikom"));
+
+        Color color = Color.web("#585858");
+
+        BackgroundFill fill = new BackgroundFill(color, new CornerRadii(1), new Insets(0,0,0,0));
+
+        border.setBackground(new Background(fill));
 
 //        FlowPane flow1 = new FlowPane(Orientation.VERTICAL);
 //        flow1.setColumnHalignment(HPos.LEFT); // align labels on left
@@ -319,23 +296,31 @@ public class dashboardController {
 //            flow1.getChildren().add(new Label(titles[i]);
 //        }
 
-            //Text text = new Text(10, 40, "Hello World!");
-            //text.setFont(new Font(40));
+        //Text text = new Text(10, 40, "Hello World!");
+        //text.setFont(new Font(40));
 
-            iv70.fitWidthProperty().bind(mainPane.widthProperty());
-            iv80.fitWidthProperty().bind(mainPane.widthProperty());
+        iv70.fitWidthProperty().bind(mainPane.widthProperty());
+        iv80.fitWidthProperty().bind(mainPane.widthProperty());
 
+        return border;
 
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
 
-            //public static void main(String[] args) {
-            //Application.launch(args);
-            //}
+        //public static void main(String[] args) {
+        //Application.launch(args);
+        //}
 
+
+    }
+
+    public void GetPlacesPage() throws SQLException {
+
+
+            BorderPane bp = showParking(1);
 
             mainPane.getChildren().clear();
-            mainPane.getChildren().add(border);
+            mainPane.getChildren().add(bp);
             mainPane.getChildren().add(new Label());
             //*************************
 

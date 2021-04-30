@@ -1,5 +1,6 @@
 package com.parkingmanager.controllers;
 
+import com.parkingmanager.models.Parking;
 import com.parkingmanager.models.Place;
 import com.parkingmanager.models.Utilisateur;
 import com.parkingmanager.models.Voiture;
@@ -51,7 +52,7 @@ public class AdministrationPageController {
 
         voiture.setDate_entree(dateVoiture.getText());
 
-        Place place = Place.findOnePlace(Integer.parseInt(placeVoiture.getText()));
+        Voiture place = Voiture.findPlaceTaken(Integer.parseInt(placeVoiture.getText()));
 
         if(place != null){
 
