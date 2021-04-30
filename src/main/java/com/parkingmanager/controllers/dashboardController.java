@@ -142,7 +142,22 @@ public class dashboardController {
 
             lab.setTextFill(Color.VIOLET);
 
-            par.add(h,lab);
+            if(h==0){
+
+                Label fi = new Label();
+
+                Font fo = new Font(30);
+
+                fi.setFont(fo);
+
+                fi.setTextFill(Color.VIOLET);
+
+                fi.setText("Choisissez un parking : ");
+
+                mehz2.getChildren().add(fi);
+            }
+
+            par.add(lab);
 
             //pp.getChildren().add(par.get(h));
 
