@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" fx:controller="com.parkingmanager.controllers.StatistiquesPage" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="401.0" fitWidth="608.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/un%20parc.png" />
+         </image>
+      </ImageView>
+   </children>
+</FlowPane>

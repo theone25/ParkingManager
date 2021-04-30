@@ -2,7 +2,7 @@ package com.parkingmanager.services;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.parkingmanager.models.Utilisateur;
-import com.parkingmanager.utils.Validator;
+import com.parkingmanager.utils.*;
 
 import java.sql.SQLException;
 import java.util.HashMap;

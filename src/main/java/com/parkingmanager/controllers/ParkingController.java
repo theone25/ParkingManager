@@ -1,6 +1,6 @@
 package com.parkingmanager.controllers;
 
-import com.parkingmanager.models.Adresse;
+//import com.parkingmanager.models.Adresse;
 import com.parkingmanager.models.Parking;
 
 import java.sql.SQLException;
@@ -13,8 +13,8 @@ public class ParkingController {
         return Parking.getParkingById(id);
     }
 
-    public List<Parking> getAllParkings() throws SQLException {
-
-        return Parking.getAllParkings();
-    }
+//    public List<Parking> getAllParkings() throws SQLException {
+//
+//        return Parking.getAllParkings();
+//    }
 }

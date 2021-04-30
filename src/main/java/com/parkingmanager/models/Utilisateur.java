@@ -1,6 +1,6 @@
 package com.parkingmanager.models;
 
-import com.parkingmanager.dao.DB;
+import com.parkingmanager.dao.*;
 import com.parkingmanager.models.query.QUtilisateur;
 import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -25,6 +25,7 @@ public class Utilisateur extends Model {
     private String email;
     @NotNull
     private String password;
+    @Null
     private String image;
 
     public int getId() {
