@@ -2,10 +2,7 @@ package com.parkingmanager.controllers;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.parkingmanager.App;
-import com.parkingmanager.models.Parking;
-import com.parkingmanager.models.Place;
-import com.parkingmanager.models.Utilisateur;
-import com.parkingmanager.models.Voiture;
+import com.parkingmanager.models.*;
 import com.parkingmanager.models.query.QVoiture;
 import com.parkingmanager.services.*;
 import javafx.fxml.FXML;

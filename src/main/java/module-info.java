@@ -16,6 +16,7 @@ module com.parkingmanager {
     requires persistence.api;
     requires java.validation;
     requires io.ebean.querybean;
+    requires javafx.graphics;
 
     opens com.parkingmanager.controllers to javafx.fxml;
     exports com.parkingmanager.controllers;
