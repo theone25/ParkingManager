@@ -1,6 +1,8 @@
 package com.parkingmanager.models;
 
 import com.parkingmanager.dao.DB;
+import com.parkingmanager.models.query.QTicket;
+import io.ebean.Model;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -13,13 +15,22 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Ticket {
+public class Ticket extends Model {
     @Id
     private int id_ticket;
+
     @NotNull
-    private Date date_entree;
+    private int id_voiture;
+
     @NotNull
-    private Date date_sortie;
+    private int id_place;
+
+//    @NotNull
+//    private String date_entree;
+
+
+//    @NotNull
+//    private Date date_sortie;
 
     public int getId_ticket() {
         return id_ticket;
@@ -29,20 +40,41 @@ public class Ticket {
         this.id_ticket = id_ticket;
     }
 
-    public Date getDate_entree() {
-        return date_entree;
+//    public String getDate_entree() {
+//        return date_entree;
+//    }
+
+//    public void setDate_entree(String date_entree) {
+//        this.date_entree = date_entree;
+//    }
+
+//    public Date getDate_sortie() {
+//        return date_sortie;
+//    }
+//
+//    public void setDate_sortie(Date date_sortie) {
+//        this.date_sortie = date_sortie;
+//    }
+
+
+    public int getId_voiture() {
+
+        return id_voiture;
     }
 
-    public void setDate_entree(Date date_entree) {
-        this.date_entree = date_entree;
+    public void setId_voiture(int id_voiture) {
+
+        this.id_voiture = id_voiture;
     }
 
-    public Date getDate_sortie() {
-        return date_sortie;
+    public int getId_place() {
+
+        return id_place;
     }
 
-    public void setDate_sortie(Date date_sortie) {
-        this.date_sortie = date_sortie;
+    public void setId_place(int id_place) {
+
+        this.id_place = id_place;
     }
 
     public static ResultSetHandler<Ticket> RSH(){
@@ -63,12 +95,23 @@ public class Ticket {
         return DB.QR().query(DB.con(), "SELECT * FROM Ticket", Ticket.BLH());
     }
 
+    public static List<Ticket> getTickets() throws SQLException {
+
+        return QTicket.alias().findList();
+    }
+
+    public static Ticket save(Ticket ticket) throws SQLException {
+
+        ticket.save();
+        return ticket;
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +
                 "id_ticket=" + id_ticket +
-                ", date_entree=" + date_entree +
-                ", date_sortie=" + date_sortie +
+                "id_place=" + id_place +
+                "id_voiture=" + id_voiture +
                 '}';
     }
 }

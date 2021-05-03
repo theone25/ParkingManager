@@ -178,8 +178,10 @@
                   <Label prefHeight="60.0" prefWidth="77.0" text="Id Place" />
                   <TextField fx:id="idplace_ticket" prefHeight="40" />
 
-                  <Label prefHeight="52.0" prefWidth="112.0" text="Date d'entrée" />
-                  <TextField fx:id="datedentree" prefHeight="40.0" />
+
+<!--              <Label prefHeight="52.0" prefWidth="112.0" text="Date d'entrée" />
+
+                 <TextField fx:id="datedentree" prefHeight="40.0" />-->
 
                   <HBox prefHeight="100.0" prefWidth="200.0">
 

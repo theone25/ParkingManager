@@ -1,9 +1,6 @@
 package com.parkingmanager.controllers;
 
-import com.parkingmanager.models.Parking;
-import com.parkingmanager.models.Place;
-import com.parkingmanager.models.Utilisateur;
-import com.parkingmanager.models.Voiture;
+import com.parkingmanager.models.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,6 +36,18 @@ public class AdministrationPageController {
     public Label insertPlaceStatus;
 
     public Label insertVoitureStatus;
+
+    public TextField idticket;
+
+    public TextField idvoiture_ticket;
+
+    public TextField idplace_ticket;
+
+    public TextField datedentree;
+
+    public Button submitTicketInsert;
+
+    public Label insertTicketStatus;
 
     public void submitVoitureInsertAction(ActionEvent actionEvent) throws SQLException {
 
@@ -90,6 +99,25 @@ public class AdministrationPageController {
         insertPlaceStatus.setFont(new Font(23));
 
         insertPlaceStatus.setText("Success !");
+
+    }
+
+    public void submitTicketInsertAction(ActionEvent actionEvent) throws SQLException {
+
+        Ticket ticket = new Ticket();
+
+        ticket.setId_ticket(Integer.parseInt(idticket.getText()));
+
+        ticket.setId_place(Integer.parseInt(idplace_ticket.getText()));
+
+        ticket.setId_voiture(Integer.parseInt(idvoiture_ticket.getText()));
+
+        Ticket.save(ticket);
+
+        insertTicketStatus.setTextFill(Color.GREEN);
+        insertTicketStatus.setFont(new Font(23));
+
+        insertTicketStatus.setText("Success !");
 
     }
 }
