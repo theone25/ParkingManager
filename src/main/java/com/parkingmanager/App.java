@@ -1,11 +1,14 @@
 package com.parkingmanager;
 
 //import com.parkingmanager.models.Utilisateur;
+import com.parkingmanager.controllers.camerastreamController;
 import com.parkingmanager.models.query.QUtilisateur;
+import com.parkingmanager.services.opencvvideofeed;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import io.ebean.DB;
 
@@ -16,7 +19,7 @@ import java.util.List;
  * JavaFX App
  */
 public class App extends Application {
-
+   
     @Override
     public void start(Stage stage) throws IOException {
         //JMetro jMetro = new JMetro(Style.LIGHT);
@@ -30,7 +33,10 @@ public class App extends Application {
         stage.show();
 
 
+
     }
+
+   
 
     public static Scene loadScene(String fxml, double w, double h) throws IOException {
 
@@ -57,6 +63,8 @@ public class App extends Application {
     public static void main(String[] args) {
         DB.getDefault();
         launch();
+        
+
     }
 
 }

@@ -142,19 +142,77 @@
                      </VBox.margin>
                   </HBox>
                </children>
+
                <padding>
                   <Insets bottom="50.0" left="25.0" right="120.0" top="20.0" />
                </padding>
+
             </VBox>
+
          </content>
+
       </Tab>
+
       <Tab text="Ticket">
+
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+
+            <VBox>
+
                <children>
-                  <VBox prefHeight="369.0" prefWidth="606.0" style="-fx-background-color: white;" />
+
+                  <Label prefHeight="63.0" prefWidth="171.0" text="Insertion Ticket">
+
+                     <font>
+                        <Font name="Arial" size="24" />
+                     </font>
+
+                  </Label>
+
+                  <Label prefHeight="60.0" prefWidth="36.0" text="Id" />
+                  <TextField fx:id="idticket" prefHeight="40" />
+
+                  <Label prefHeight="52.0" prefWidth="112.0" text="Id Voiture" />
+                  <TextField fx:id="idvoiture_ticket" prefHeight="40.0" />
+
+                  <Label prefHeight="60.0" prefWidth="77.0" text="Id Place" />
+                  <TextField fx:id="idplace_ticket" prefHeight="40" />
+
+
+<!--              <Label prefHeight="52.0" prefWidth="112.0" text="Date d'entrée" />
+
+                 <TextField fx:id="datedentree" prefHeight="40.0" />-->
+
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+
+                     <children>
+
+                        <Button fx:id="submitTicketInsert" defaultButton="true" onAction="#submitTicketInsertAction" prefHeight="40.0" prefWidth="100.0" text="Valider" textFill="WHITE" />
+
+                        <Label fx:id="insertTicketStatus" prefHeight="60.0" prefWidth="378.0">
+
+                           <HBox.margin>
+                              <Insets left="210.0" />
+                           </HBox.margin>
+
+                        </Label>
+
+                     </children>
+
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+
+                  </HBox>
+
                </children>
-            </AnchorPane>
+
+               <padding>
+                  <Insets bottom="50.0" left="25.0" right="120.0" top="20.0" />
+               </padding>
+
+            </VBox>
+            
          </content>
       </Tab>
   </tabs>

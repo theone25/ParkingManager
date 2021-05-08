@@ -1,11 +1,9 @@
 package com.parkingmanager.controllers;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import com.parkingmanager.App;
-import com.parkingmanager.models.Parking;
-import com.parkingmanager.models.Place;
-import com.parkingmanager.models.Utilisateur;
-import com.parkingmanager.models.Voiture;
+import com.parkingmanager.*;
+
+import com.parkingmanager.models.*;
 import com.parkingmanager.models.query.QVoiture;
 import com.parkingmanager.services.*;
 import javafx.fxml.FXML;
@@ -14,19 +12,23 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,9 +41,13 @@ public class dashboardController {
     public Button button5;
     public Button button6;
 
+    private VBox mehz = new VBox();
+
+    private HBox mehz2 = new HBox();
+
     @FXML Pane mainPane;
     @FXML
-     ImageView avatar;
+    ImageView avatar;
     @FXML
     Label fullname;
 
@@ -51,24 +57,35 @@ public class dashboardController {
         AuthManager auth = AuthManager.getDefaultInstance();
         Utilisateur user = auth.getAuthenticatedUser();
 
-        fullname.setText(user.getNom()+" "+user.getPrenom());
+        Rectangle clip = new Rectangle(avatar.getFitWidth(), avatar.getFitHeight());
+        clip.setArcWidth(60);
+        clip.setArcHeight(60);
+        avatar.setClip(clip);
 
+        SnapshotParameters parameters = new SnapshotParameters();
+        parameters.setFill(Color.TRANSPARENT);
+
+        if(user==null){
+            fullname.setText("USER");
+        }else{
+            fullname.setText(user.getNom()+" "+user.getPrenom());
+        }
         String img = user.getImage();
 
-        System.out.println("img = "+img);
 
         if(img != null) {
 
             if ( user.getImage().contains(App.class.getResource("images/userImages/").toString())) {
                 ImageView imageView = new ImageView(new Image(App.class.getResource("images/userImages/" + user.getImage()).toString()));
-
+                WritableImage image = avatar.snapshot(parameters, null);
                 avatar.setImage(imageView.getImage());
+
             }
         }
         else{
 
             ImageView imageView = new ImageView(new Image(App.class.getResource("images/userImages/noavatar.png").toString()));
-
+            WritableImage image = avatar.snapshot(parameters, null);
             avatar.setImage(imageView.getImage());
         }
 
@@ -79,16 +96,19 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     public void GetCameraStream(){
+
         try {
             Pane pane =  FXMLLoader.load(App.class.getResource("views/cameraStream.fxml"));
             mainPane.getChildren().clear();
             mainPane.getChildren().add(pane);
 
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println(e.getMessage());
         }
     }
@@ -100,6 +120,165 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void init() throws SQLException {
+
+        List<Parking> parking = Parking.getParkings();
+
+        BorderPane borderPane = showParking(parking.get(0).getId_parking());
+
+        mainPane.getChildren().clear();
+        mainPane.getChildren().add(borderPane);
+        mainPane.getChildren().add(new Label());
+    }
+
+    public void setParcs() throws SQLException {
+
+        List<Parking> parking = Parking.getParkings();
+
+        int h=0;
+
+        ArrayList <Label> par = new ArrayList<>(parking.size());
+
+        //HBox pp = new HBox();
+
+        mehz2.getChildren().clear();
+
+        mehz2.setSpacing(200);
+
+        mehz2.alignmentProperty().setValue(Pos.CENTER);
+
+        while(h<parking.size()){
+
+            Label lab = new Label("Parking num :"+(parking.get(h).getId_parking()));
+
+            lab.setFont(new Font(30));
+
+            lab.setTextFill(Color.VIOLET);
+
+            if(h==0){
+
+                Label fi = new Label();
+
+                Font fo = new Font(30);
+
+                fi.setFont(fo);
+
+                fi.setTextFill(Color.VIOLET);
+
+                fi.setText("Choisissez un parking : ");
+
+                mehz2.getChildren().add(fi);
+            }
+
+            par.add(lab);
+
+            //pp.getChildren().add(par.get(h));
+
+            mehz2.getChildren().add(par.get(h));
+
+            int finalH = h;
+
+            par.get(h).setOnMouseClicked(event -> {
+
+                try {
+
+                    BorderPane borderPane = showParking(parking.get(finalH).getId_parking());
+
+                    mainPane.getChildren().clear();
+                    mainPane.getChildren().add(borderPane);
+                    mainPane.getChildren().add(new Label());
+
+                } catch (SQLException throwables) {
+
+                    throwables.printStackTrace();
+                }
+
+            });
+
+            h++;
+        }
+    }
+
+    public void init() throws SQLException {
+
+        List<Parking> parking = Parking.getParkings();
+
+        BorderPane borderPane = showParking(parking.get(0).getId_parking());
+
+        mainPane.getChildren().clear();
+        mainPane.getChildren().add(borderPane);
+        mainPane.getChildren().add(new Label());
+    }
+
+    public void setParcs() throws SQLException {
+
+        List<Parking> parking = Parking.getParkings();
+
+        int h=0;
+
+        ArrayList <Label> par = new ArrayList<>(parking.size());
+
+        //HBox pp = new HBox();
+
+        mehz2.getChildren().clear();
+
+        mehz2.setSpacing(200);
+
+        mehz2.alignmentProperty().setValue(Pos.CENTER);
+
+        while(h<parking.size()){
+
+            Label lab = new Label("Parking num :"+(parking.get(h).getId_parking()));
+
+            lab.setFont(new Font(30));
+
+            lab.setTextFill(Color.VIOLET);
+
+            if(h==0){
+
+                Label fi = new Label();
+
+                Font fo = new Font(30);
+
+                fi.setFont(fo);
+
+                fi.setTextFill(Color.VIOLET);
+
+                fi.setText("Choisissez un parking : ");
+
+                mehz2.getChildren().add(fi);
+            }
+
+            par.add(lab);
+
+            //pp.getChildren().add(par.get(h));
+
+            mehz2.getChildren().add(par.get(h));
+
+            int finalH = h;
+
+            par.get(h).setOnMouseClicked(event -> {
+
+                try {
+
+                    BorderPane borderPane = showParking(parking.get(finalH).getId_parking());
+
+                    mainPane.getChildren().clear();
+                    mainPane.getChildren().add(borderPane);
+                    mainPane.getChildren().add(new Label());
+
+                } catch (SQLException throwables) {
+
+                    throwables.printStackTrace();
+                }
+
+            });
+
+            h++;
         }
     }
 
@@ -114,11 +293,32 @@ public class dashboardController {
 
         //Voiture voiture = Voiture.getVoitureById(1);
 
+
         List<Voiture> listVoitures = Voiture.getAllVoitures();
 
         List<Place> place = Place.getPlacesParking(integer);
 
-        int cap = Parking.getParkingById(1).getCapacite();
+        int v=0;
+
+        ArrayList <Voiture>remplist = new ArrayList<Voiture>();
+
+        int remplis = 0;
+        int vides = 0;
+
+        while(v<place.size()){
+
+            if(Voiture.findPlaceTaken(place.get(v).getId_place()) != null){
+
+                remplist.add(Voiture.findPlaceTaken(place.get(v).getId_place()));
+                remplis++;
+
+            }else{
+                vides++;
+            }
+            v++;
+        }
+
+        int cap = Parking.getParkingById(integer).getCapacite();
 
         int j=0;
 
@@ -147,7 +347,8 @@ public class dashboardController {
         //flow.setVgap(8);
         //flow.setHgap(4);
 
-        int s = 0;
+
+
 
         flow.setPrefWrapLength(300);
 
@@ -158,68 +359,105 @@ public class dashboardController {
 
         int i=0;
 
-        while(i < t) {
-            //flow.getChildren().add(buttons[i]);
+        while(i < remplis) {
+
 
             int I = i;
 
-            images30[s] = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString()));
+            //flow.getChildren().add(buttons[i]);
+<<<<<<< HEAD
 
-            if(i<d) {
+            images = new ImageView[d];
+            images[i] = new ImageView(new Image(App.class.getResource("images/parc/1.jpg").toString(), 150, 200, false, false));
 
-                images = new ImageView[d];
-                images[i] = new ImageView(new Image(App.class.getResource("images/parc/1.jpg").toString()));
+            images[i].setOnMouseEntered(event -> {
 
-                images[i].setOnMouseEntered(event -> {
+                //tooltip.setText("image num "+ I);
+                lab.setText("Id: " + Integer.toString(remplist.get(I).getId_voiture()));
+                //tooltip.show(primaryStage);
+            });
 
-                    //tooltip.setText("image num "+ I);
-                    lab.setText("Id: "+Integer.toString(listVoitures.get(I).getId_voiture()));
-                    //tooltip.show(primaryStage);
-                });
+            images[i].setOnMouseExited(event -> {
 
-                images[i].setOnMouseExited(event -> {
+                //lab.setVisible(false);
+            });
 
-                    //lab.setVisible(false);
-                });
+            images[i].setOnMouseClicked(event -> {
 
-                images[i].setOnMouseClicked(event -> {
+                lab2.setText("Matricule: " + remplist.get(I).getMatricule());
+                lab2.setFont(new Font(30));
+                lab2.setTextFill(Color.RED);
 
-                    lab2.setText("Matricule: "+listVoitures.get(I).getMatricule());
-                    lab2.setFont(new Font(30));
-                    lab2.setTextFill(Color.RED);
+            });
 
-                });
+            flow.getChildren().add(images[i]);
+            i++;
+        }
 
-                flow.getChildren().add(images[i]);
+        int s=0;
 
-            }else{
+        while(s<vides){
 
-                images30[s].setOnMouseEntered(event -> {
+=======
 
-                    lab.setVisible(true);
+            images = new ImageView[d];
+            images[i] = new ImageView(new Image(App.class.getResource("images/parc/1.jpg").toString(), 150, 200, false, false));
 
-                    //tooltip.setText("image num "+ I);
-                    //lab.setText("Id: "+Integer.toString(place.get(I).getId_place()));
-                    //tooltip.show(primaryStage);
-                });
+            images[i].setOnMouseEntered(event -> {
 
-                images30[s].setOnMouseExited(event -> {
+                //tooltip.setText("image num "+ I);
+                lab.setText("Id: " + Integer.toString(remplist.get(I).getId_voiture()));
+                //tooltip.show(primaryStage);
+            });
 
-                    //lab.setVisible(false);
-                });
+            images[i].setOnMouseExited(event -> {
 
-                images30[s].setOnMouseClicked(event -> {
+                //lab.setVisible(false);
+            });
+
+            images[i].setOnMouseClicked(event -> {
+
+                lab2.setText("Matricule: " + remplist.get(I).getMatricule());
+                lab2.setFont(new Font(30));
+                lab2.setTextFill(Color.RED);
+
+            });
+
+            flow.getChildren().add(images[i]);
+            i++;
+        }
+
+        int s=0;
+
+        while(s<vides){
+
+>>>>>>> e435bbe2913ac0256edb7398887da25cb43303a9
+            images30[s] = new ImageView(new Image(App.class.getResource("images/parc/test.jpg").toString(), 150, 200, false, false));
+
+            images30[s].setOnMouseEntered(event -> {
+
+                lab.setVisible(true);
+
+                //tooltip.setText("image num "+ I);
+                //lab.setText("Id: "+Integer.toString(place.get(I).getId_place()));
+                //tooltip.show(primaryStage);
+            });
+
+            images30[s].setOnMouseExited(event -> {
+
+                //lab.setVisible(false);
+            });
+
+            images30[s].setOnMouseClicked(event -> {
 
 //                    lab2.setText("Numéro: "+Integer.toString(place.get(I).getNumero()));
 //                    lab2.setFont(new Font(30));
 //                    lab2.setTextFill(Color.RED);
 
-                });
+            });
 
-                flow.getChildren().add(images30[s]);
-                s++;
-            }
-            i++;
+            flow.getChildren().add(images30[s]);
+            s++;
 
         }
 
@@ -235,12 +473,16 @@ public class dashboardController {
 
         HBox sti = new HBox();
 
-        VBox mehz = new VBox();
+        mehz = new VBox();
+
+        mehz.getChildren().clear();
+
+        mehz.getChildren().add(mehz2);
 
         mehz.getChildren().add(iv70);
 
-        Label lab3 = new Label("Nb places occupées : "+d);
-        Label lab4 = new Label("Nb places libres : "+(t-d));
+        Label lab3 = new Label("Nb places occupées : "+remplis);
+        Label lab4 = new Label("Nb places libres : "+vides);
         //Label lab5 = new Label("Capacité : "+cap);
 
         HBox ff = new HBox();
@@ -270,6 +512,7 @@ public class dashboardController {
 
         lab.setTextFill(Color.YELLOW);
         lab.setFont(new Font(30));
+
         sti.getChildren().add(lab);
         sti.getChildren().add(lab2);
         sti.setSpacing(50);
@@ -317,13 +560,25 @@ public class dashboardController {
     public void GetPlacesPage() throws SQLException {
 
 
-            BorderPane bp = showParking(1);
+<<<<<<< HEAD
+        //init();
+        //setParcs();
 
+        //*************************
+        try {
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/placesPage.fxml"));
             mainPane.getChildren().clear();
-            mainPane.getChildren().add(bp);
-            mainPane.getChildren().add(new Label());
-            //*************************
+            mainPane.getChildren().add(pane);
+=======
+        init();
+        setParcs();
 
+        //*************************
+>>>>>>> e435bbe2913ac0256edb7398887da25cb43303a9
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
 
 
@@ -339,6 +594,7 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -350,6 +606,7 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
     public void GetStatistiquesPage() throws SQLException {
@@ -361,13 +618,14 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
     }
 
 
 
-        public void testfunction(){
+    public void testfunction(){
         String password = "1234";
         String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
         // $2a$12$US00g/uMhoSBm.HiuieBjeMtoN69SN.GE25fCpldebzkryUyopws6
