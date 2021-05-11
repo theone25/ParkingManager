@@ -9,22 +9,22 @@
    <children>
       <Pane layoutX="58.0" layoutY="30.0" prefHeight="74.0" prefWidth="230.0" styleClass="topStats" stylesheets="@../style/HomeStyle.css" AnchorPane.leftAnchor="58.0" AnchorPane.topAnchor="30.0">
          <children>
-            <Label layoutX="20.0" layoutY="7.0" prefHeight="32.0" prefWidth="191.0" text="TOTAL RESERVATIONS">
+            <Label layoutX="20.0" layoutY="7.0" prefHeight="32.0" prefWidth="191.0" text="TOTAL D'USAGE:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="39.0" prefHeight="17.0" prefWidth="191.0" text="XXX" />
+            <Label fx:id="used" layoutX="20.0" layoutY="39.0" prefHeight="17.0" prefWidth="191.0" text="XXX" />
          </children>
       </Pane>
       <Pane layoutX="430.0" layoutY="30.0" prefHeight="74.0" prefWidth="230.0" styleClass="topStats" stylesheets="@../style/HomeStyle.css" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="30.0">
          <children>
-            <Label layoutX="20.0" layoutY="7.0" prefHeight="32.0" prefWidth="191.0" text="REVENUE">
+            <Label layoutX="20.0" layoutY="7.0" prefHeight="32.0" prefWidth="191.0" text="PLACES LIBRES:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="39.0" prefHeight="17.0" prefWidth="191.0" text="XXX DH" />
+            <Label fx:id="free" layoutX="20.0" layoutY="39.0" prefHeight="17.0" prefWidth="191.0" text="XXX DH" />
          </children>
       </Pane>
       <Pane layoutX="25.0" layoutY="120.0" prefHeight="270.0" prefWidth="425.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="120.0">

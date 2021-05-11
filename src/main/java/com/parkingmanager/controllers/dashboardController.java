@@ -12,14 +12,17 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -54,24 +57,35 @@ public class dashboardController {
         AuthManager auth = AuthManager.getDefaultInstance();
         Utilisateur user = auth.getAuthenticatedUser();
 
-        fullname.setText(user.getNom()+" "+user.getPrenom());
+        Rectangle clip = new Rectangle(avatar.getFitWidth(), avatar.getFitHeight());
+        clip.setArcWidth(60);
+        clip.setArcHeight(60);
+        avatar.setClip(clip);
 
+        SnapshotParameters parameters = new SnapshotParameters();
+        parameters.setFill(Color.TRANSPARENT);
+
+        if(user==null){
+            fullname.setText("USER");
+        }else{
+            fullname.setText(user.getNom()+" "+user.getPrenom());
+        }
         String img = user.getImage();
 
-        System.out.println("img = "+img);
 
         if(img != null) {
 
             if ( user.getImage().contains(App.class.getResource("images/userImages/").toString())) {
                 ImageView imageView = new ImageView(new Image(App.class.getResource("images/userImages/" + user.getImage()).toString()));
-
+                WritableImage image = avatar.snapshot(parameters, null);
                 avatar.setImage(imageView.getImage());
+
             }
         }
         else{
 
             ImageView imageView = new ImageView(new Image(App.class.getResource("images/userImages/noavatar.png").toString()));
-
+            WritableImage image = avatar.snapshot(parameters, null);
             avatar.setImage(imageView.getImage());
         }
 
@@ -82,6 +96,7 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -93,6 +108,7 @@ public class dashboardController {
             mainPane.getChildren().add(pane);
 
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println(e.getMessage());
         }
     }
@@ -104,6 +120,7 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -429,11 +446,18 @@ public class dashboardController {
     public void GetPlacesPage() throws SQLException {
 
 
-        init();
-        setParcs();
+        //init();
+        //setParcs();
 
         //*************************
+        try {
+            Pane pane =  FXMLLoader.load(App.class.getResource("views/placesPage.fxml"));
+            mainPane.getChildren().clear();
+            mainPane.getChildren().add(pane);
 
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
 
 
@@ -449,6 +473,7 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -460,6 +485,7 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
     public void GetStatistiquesPage() throws SQLException {
@@ -471,6 +497,7 @@ public class dashboardController {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
     }

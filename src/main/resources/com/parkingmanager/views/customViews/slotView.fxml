@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="70" prefWidth="120" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parkingmanager.controllers.PlaceController">
+<AnchorPane prefHeight="125.0" prefWidth="139.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parkingmanager.controllers.PlaceController">
    <children>
-      <Label layoutX="38.0" layoutY="6.0" textAlignment="RIGHT" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="6.0">
+      <Label layoutY="6.0" prefHeight="17.0" prefWidth="139.0" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Pane layoutX="10.0" layoutY="23.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="23.0" />
+      <Pane layoutX="10.0" layoutY="23.0" prefHeight="128.0" prefWidth="128.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="23.0">
+         <children>
+            <ImageView fx:id="carplace" fitHeight="128.0" fitWidth="128.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true" />
+         </children></Pane>
    </children>
 </AnchorPane>
