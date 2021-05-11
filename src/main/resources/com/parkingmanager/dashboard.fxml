@@ -48,7 +48,18 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button5" alignment="BASELINE_LEFT" layoutY="300.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Tickets">
+            <Button fx:id="button4" alignment="BASELINE_LEFT" layoutY="300.0" mnemonicParsing="false" onAction="#GetStatistiquesPage" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Statistiques">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/calendar-line.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Button fx:id="button5" alignment="BASELINE_LEFT" layoutY="345.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Tickets">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -59,7 +70,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button6" alignment="BASELINE_LEFT" layoutY="345.0" mnemonicParsing="false" onAction="#GetCameraStream" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Surveillance">
+            <Button fx:id="button6" alignment="BASELINE_LEFT" layoutY="390.0" mnemonicParsing="false" onAction="#GetCameraStream" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Surveillance">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -70,7 +81,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button88" alignment="BASELINE_LEFT" layoutY="390.0" mnemonicParsing="false" onAction="#GetAdministration" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Administration">
+            <Button fx:id="button88" alignment="BASELINE_LEFT" layoutY="435.0" mnemonicParsing="false" onAction="#GetAdministration" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Administration">
                <font>
                   <Font size="16.0" />
                </font>

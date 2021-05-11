@@ -11,12 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import io.ebean.DB;
-import org.opencv.core.Core;
-import org.opencv.dnn.Dnn;
-import org.opencv.dnn.Net;
-import org.opencv.imgcodecs.Imgcodecs;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -24,12 +19,7 @@ import java.util.List;
  * JavaFX App
  */
 public class App extends Application {
-    //String modelWeights = "C:\\Users\\moham\\Documents\\GitHub\\ParkingManageree\\src\\main\\resources\\com\\parkingmanager\\custom.weights";
-    //String modelConfiguration = "C:\\Users\\moham\\Documents\\GitHub\\ParkingManageree\\src\\main\\resources\\com\\parkingmanager\\yolov4.cfg";
-    String path = new File("").getAbsolutePath();
-    String modelWeights = path+File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"com"+File.separator +"parkingmanager"+File.separator +"yolov3-obj_final.weights";
-    String modelConfiguration = path+File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"com"+File.separator +"parkingmanager"+File.separator +"yolov3-obj.cfg";
-    public static Net net;
+   
     @Override
     public void start(Stage stage) throws IOException {
         //JMetro jMetro = new JMetro(Style.LIGHT);
@@ -41,24 +31,12 @@ public class App extends Application {
         stage.setTitle("Parking Manager");
 
         stage.show();
-        startddn();
 
 
 
     }
 
-    public void startddn(){
-        net = Dnn.readNetFromDarknet(modelConfiguration, modelWeights);
-
-        System.out.println("ddn loaded");
-        opencvvideofeed vid=new opencvvideofeed();
-        vid.start();
-
-
-
-
-
-    }
+   
 
     public static Scene loadScene(String fxml, double w, double h) throws IOException {
 
@@ -84,10 +62,8 @@ public class App extends Application {
 
     public static void main(String[] args) {
         DB.getDefault();
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         launch();
-        camerastreamController.camstream.setFitWidth(670);
-        camerastreamController.camstream.setFitHeight(377);
+        
 
     }
 
