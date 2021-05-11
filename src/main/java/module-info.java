@@ -17,6 +17,12 @@ module com.parkingmanager {
     requires java.validation;
     requires io.ebean.querybean;
     requires javafx.graphics;
+    requires javafx.swing;
+    requires opencv;
+    requires tess4j;
+    requires io.ebean.annotation;
+    requires java.desktop;
+    requires commons.exec;
 
     opens com.parkingmanager.controllers to javafx.fxml;
     exports com.parkingmanager.controllers;

@@ -25,7 +25,9 @@ public class Voiture extends Model {
     @NotNull
     private int place;
 
-    private String Date_entree;
+    public String Date_entree;
+
+    private String Date_sortie;
 
     public int getId_voiture() {
         return id_voiture;

@@ -25,9 +25,9 @@ public class Place extends Model {
     private int id_place;
     @NotNull
     private int numero;
-
     @NotNull
-    private int id_parking;
+    public int id_parking;
+    public boolean libre;
 
 //
 //    @NotNull

@@ -1,55 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parkingmanager.controllers.dashboardController">
+<AnchorPane prefHeight="800.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.parkingmanager.controllers.dashboardController">
    <children>
-      <Pane layoutX="170.0" prefHeight="75.0" prefWidth="750.0" styleClass="top__panel" AnchorPane.bottomAnchor="525.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="600.0" prefWidth="230.0" styleClass="menupanel" stylesheets="@style/stylesheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER_LEFT" layoutX="495.0" layoutY="7.0" prefHeight="61.0" prefWidth="200.0">
-               <children>
-
-                  <ImageView fx:id="avatar" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" styleClass="avatar" HBox.hgrow="NEVER">
-   <image>
-                        <Image url="@images/login.jpg" />
-   </image>
-
-                  </ImageView>
-                  <Label fx:id="fullname" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets left="6.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </HBox>
-         </children></Pane>
-      <Pane prefHeight="600.0" prefWidth="170.0" styleClass="menupanel" stylesheets="@style/stylesheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="19.0" layoutY="71.0" prefHeight="33.0" prefWidth="112.0" text="Menu" textFill="#e7e5e5">
+            <Label layoutX="19.0" layoutY="122.0" prefHeight="33.0" prefWidth="112.0" text="Menu" textFill="#e7e5e5">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font></Label>
 
-            <Button fx:id="button1" alignment="BASELINE_LEFT" layoutY="114.0" mnemonicParsing="false" onAction="#GetHomePage" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Tablau de Bord">
+            <Button fx:id="button1" alignment="BASELINE_LEFT" layoutY="165.0" mnemonicParsing="false" onAction="#GetHomePage" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Tablau de Bord">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -60,7 +26,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button2" alignment="BASELINE_LEFT" layoutY="159.0" mnemonicParsing="false" onAction="#GetPlacesPage" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Places">
+            <Button fx:id="button2" alignment="BASELINE_LEFT" layoutY="210.0" mnemonicParsing="false" onAction="#GetPlacesPage" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Places">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -71,7 +37,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button3" alignment="BASELINE_LEFT" layoutY="204.0" mnemonicParsing="false" onAction="#GetVehiculesPage" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Vehicules">
+            <Button fx:id="button3" alignment="BASELINE_LEFT" layoutY="255.0" mnemonicParsing="false" onAction="#GetVehiculesPage" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Vehicules">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -82,18 +48,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button4" alignment="BASELINE_LEFT" layoutY="249.0" mnemonicParsing="false" onAction="#GetStatistiquesPage" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Statistiques">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/calendar-line.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="16.0" />
-               </font></Button>
-            <Button fx:id="button5" alignment="BASELINE_LEFT" layoutY="294.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Tickets">
+            <Button fx:id="button5" alignment="BASELINE_LEFT" layoutY="300.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Tickets">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -104,7 +59,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button6" alignment="BASELINE_LEFT" layoutY="339.0" mnemonicParsing="false" onAction="#GetCameraStream" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Surveillance">
+            <Button fx:id="button6" alignment="BASELINE_LEFT" layoutY="345.0" mnemonicParsing="false" onAction="#GetCameraStream" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Surveillance">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -115,18 +70,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="button7" alignment="BASELINE_LEFT" layoutY="429.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Parametres">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/settings-4-line.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="16.0" />
-               </font></Button>
-            <Button fx:id="button88" alignment="BASELINE_LEFT" layoutY="384.0" mnemonicParsing="false" onAction="#GetAdministration" prefHeight="45.0" prefWidth="170.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Administration">
+            <Button fx:id="button88" alignment="BASELINE_LEFT" layoutY="390.0" mnemonicParsing="false" onAction="#GetAdministration" prefHeight="45.0" prefWidth="230.0" styleClass="buttondash" stylesheets="@style/stylesheet.css" text="Administration">
                <font>
                   <Font size="16.0" />
                </font>
@@ -138,8 +82,26 @@
                   </ImageView>
                </graphic>
             </Button>
+            <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="20.0" prefHeight="61.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="avatar" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" styleClass="avatar" HBox.hgrow="NEVER">
+                        <Image url="@images/login.jpg" />
+                  </ImageView>
+                  <Label fx:id="fullname" textFill="#e7e5e5" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
             </children>
       </Pane>
-      <Pane fx:id="mainPane" layoutX="170.0" layoutY="75.0" prefHeight="535.0" prefWidth="730.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0" />
+      <Pane fx:id="mainPane" layoutX="230.0" layoutY="65.0" prefHeight="535.0" prefWidth="730.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
